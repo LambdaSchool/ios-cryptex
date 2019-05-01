@@ -37,6 +37,9 @@
                                         <rect key="frame" x="162.5" y="305.5" width="57" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Unlock"/>
+                                        <connections>
+                                            <action selector="unlockButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nMf-fa-0Te"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -58,6 +61,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="hintLabel" destination="lP6-sv-dbO" id="kbK-08-Eut"/>
+                        <outlet property="pickerView" destination="L6P-8r-l0D" id="hbx-Yh-u8S"/>
+                        <outlet property="unlockButton" destination="57L-FX-OFH" id="5JP-Kb-acR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
