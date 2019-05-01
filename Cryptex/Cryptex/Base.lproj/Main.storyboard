@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dhQ-Xk-nTJ">
-                                <rect key="frame" x="16" y="299" width="382" height="298.5"/>
+                                <rect key="frame" x="16" y="289" width="382" height="318.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIv-ly-Cp7">
                                         <rect key="frame" x="170" y="0.0" width="42" height="20.5"/>
@@ -35,16 +35,24 @@
                                         </connections>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKT-H9-Wqc">
-                                        <rect key="frame" x="168" y="268.5" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="121" y="268.5" width="140" height="50"/>
+                                        <color key="backgroundColor" red="0.45516920332279798" green="0.38290793149686292" blue="0.0048967013909572074" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="140" id="0Pu-IW-NlQ"/>
+                                            <constraint firstAttribute="height" constant="50" id="lsM-HO-gtb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <state key="normal" title="Unlock...">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
-                                            <action selector="guessButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cmf-I9-WYl"/>
+                                            <action selector="unlockButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cmf-I9-WYl"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.6828044041450777" green="0.57220420911634584" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dhQ-Xk-nTJ" secondAttribute="bottom" id="61L-qQ-3rx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dhQ-Xk-nTJ" secondAttribute="trailing" constant="16" id="MeI-BD-bGP"/>
@@ -56,8 +64,8 @@
                     </view>
                     <connections>
                         <outlet property="cryptexPicker" destination="AE2-4p-G4B" id="nRZ-h3-e26"/>
-                        <outlet property="guessButton" destination="eKT-H9-Wqc" id="97c-py-zuK"/>
                         <outlet property="hintLabel" destination="aIv-ly-Cp7" id="Q5C-RB-66y"/>
+                        <outlet property="unlockButton" destination="eKT-H9-Wqc" id="97c-py-zuK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

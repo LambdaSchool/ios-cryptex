@@ -9,16 +9,18 @@
 import UIKit
 
 class CryptexViewController: UIViewController {
+	
 	@IBOutlet var hintLabel: UILabel!
 	@IBOutlet var cryptexPicker: UIPickerView!
+	@IBOutlet var unlockButton: UIButton!
 	
-	@IBOutlet var guessButton: UIButton!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view.
+		unlockButton.layer.cornerRadius = 10
 	}
 
-	@IBAction func guessButtonPressed(_ sender: UIButton) {
+	@IBAction func unlockButtonPressed(_ sender: UIButton) {
 	}
 	
 }
