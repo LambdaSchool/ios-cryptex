@@ -11,6 +11,7 @@ import UIKit
 class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var cryptexController = CryptexController()
+//    var countdownTimer = Timer?
     
     var letters = ["A", "B", "C", "D",
                    "E", "F", "G", "H",
@@ -67,6 +68,7 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             
             lettersArray.append(letter)
         }
+        //Store each letter in an array of strings
         
         let word = lettersArray.joined().lowercased()
         
@@ -76,8 +78,16 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             return false
         }
     }
-    //Store each letter in an array of strings
     
+//    func reset() {
+//        countdownTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: false)
+//    }
+//    func newCryptexAndReset() {
+//        cryptexController.randomCryptex()
+//        updateViews()
+//        reset()
+//    }
+   
     
     @IBAction func unlockButtonTapped(_ sender: Any) {
 
