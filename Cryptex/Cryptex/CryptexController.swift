@@ -28,6 +28,7 @@ class CryptexController {
 	
 	func createCryptex(hint: String, password: String, time: TimeInterval) {
 		cryptices.append(Cryptex(password: password, hint: hint, time: time))
+		saveCryptices()
 	}
 	
 	

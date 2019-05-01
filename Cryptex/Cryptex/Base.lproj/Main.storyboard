@@ -38,7 +38,7 @@
                                         <rect key="frame" x="121" y="276.5" width="140" height="50"/>
                                         <color key="backgroundColor" red="0.45516920332279798" green="0.38290793149686292" blue="0.0048967013909572074" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="140" id="0Pu-IW-NlQ"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="0Pu-IW-NlQ"/>
                                             <constraint firstAttribute="height" constant="50" id="lsM-HO-gtb"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
@@ -71,11 +71,18 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Cryptexinator" id="GXE-lX-c2q">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="JIj-ye-Z4l">
-                            <connections>
-                                <action selector="newGameButtonPressed:" destination="BYZ-38-t0r" id="ZCo-al-92V"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="BeV-hq-cGc">
+                                <connections>
+                                    <segue destination="Nd9-rs-8Fz" kind="show" id="Ad0-he-vuC"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="refresh" id="JIj-ye-Z4l">
+                                <connections>
+                                    <action selector="newGameButtonPressed:" destination="BYZ-38-t0r" id="ZCo-al-92V"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="cryptexPicker" destination="AE2-4p-G4B" id="nRZ-h3-e26"/>
@@ -87,6 +94,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="126.5625"/>
+        </scene>
+        <!--Add New Puzzle-->
+        <scene sceneID="hCE-Ow-8bo">
+            <objects>
+                <viewController id="Nd9-rs-8Fz" customClass="CryptexCreatorViewController" customModule="Cryptex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vcj-eI-V2B">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="vNa-Ex-VkH">
+                                <rect key="frame" x="24" y="270" width="366" height="138"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hint (Search engine with 100 zeroes)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fMs-dM-6kd">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password (Google)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nQT-0r-tk8">
+                                        <rect key="frame" x="0.0" y="54" width="366" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" textContentType="username"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Seconds allowed for guessing (numbers only!)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5gU-II-J3y">
+                                        <rect key="frame" x="0.0" y="108" width="366" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" textContentType="postal-code"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.68280440409999998" green="0.57220420910000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="kbR-K7-Cd6" firstAttribute="trailing" secondItem="vNa-Ex-VkH" secondAttribute="trailing" constant="24" id="9sP-cK-AgY"/>
+                            <constraint firstItem="vNa-Ex-VkH" firstAttribute="leading" secondItem="kbR-K7-Cd6" secondAttribute="leading" constant="24" id="IVS-8w-Hpz"/>
+                            <constraint firstItem="vNa-Ex-VkH" firstAttribute="top" secondItem="kbR-K7-Cd6" secondAttribute="top" constant="130" id="zGa-bC-loO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kbR-K7-Cd6"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add New Puzzle" id="fgW-IU-nFx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="DxA-v7-Qri">
+                            <connections>
+                                <action selector="addNewButtonPressed:" destination="Nd9-rs-8Fz" id="ytR-Yg-03i"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="hintTextField" destination="fMs-dM-6kd" id="kFg-b7-y4s"/>
+                        <outlet property="passwordTextField" destination="nQT-0r-tk8" id="rE2-Nu-nG0"/>
+                        <outlet property="secondsTextField" destination="5gU-II-J3y" id="Flc-nB-0m7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U3n-yy-wmS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2116" y="127"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="G8U-XB-OPi">

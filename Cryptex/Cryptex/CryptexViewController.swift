@@ -36,6 +36,11 @@ class CryptexViewController: UIViewController {
 	func updateViews() {
 		hintLabel.text = cryptexController.currentCryptex?.hint
 		cryptexPicker.reloadAllComponents()
+		guard let dataSource = cryptexPicker.dataSource else { return }
+		let lettersCount = dataSource.numberOfComponents(in: cryptexPicker)
+		for component in 0..<lettersCount {
+			cryptexPicker.selectRow(0, inComponent: component, animated: true)
+		}
 	}
 	
 	//MARK:- Game logic
@@ -121,7 +126,7 @@ class CryptexViewController: UIViewController {
 		present(ac, animated: true)
 	}
 	
-	//MARK: actions
+	//MARK: - actions
 	@IBAction func unlockButtonPressed(_ sender: UIButton) {
 		if hasMatchingPassword() {
 			reset()
@@ -135,9 +140,18 @@ class CryptexViewController: UIViewController {
 		newCryptexAndReset()
 	}
 	
+	//MARK: - nav
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if let dest = segue.destination as? CryptexCreatorViewController {
+			dest.cryptexController = cryptexController
+			dest.validCharacters = letters
+		}
+	}
 }
 
 
+//MARK: - picker view stuff
 extension CryptexViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 	func numberOfComponents(in pickerView: UIPickerView) -> Int {
 		return cryptexController.currentCryptex?.password.count ?? 0
