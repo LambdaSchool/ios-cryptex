@@ -23,7 +23,7 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         // For the number of components, think about how you can figure out how many characters are in the `currentCryptex`'s password.
-        return currentCryptex.password.count
+        return cryptexController.currentCryptex?.password.count ?? 0
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -33,6 +33,8 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         // For the title of each row, we want to show the letter that corresponds to the row. i.e. row 0 should show "A", row 1 should show "B", etc.
+        
+        return letters[row]
 
     }
 
@@ -40,19 +42,22 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        updateViews()
+        
     }
     
     func updateViews() {
-        hintLabel.text = currentCryptex.hint
+        hintLabel.text = cryptexController.currentCryptex?.hint
         //reload components of the picker view
-        
+        pickerView.reloadAllComponents()
         
     }
     
     
     @IBAction func unlockButtonTapped(_ sender: Any) {
+
     }
     
     @IBOutlet weak var hintLabel: UILabel!
