@@ -117,14 +117,21 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     func presentIncorrectPasswordAlert() {
-        let alert = UIAlertController(title: "Correct", message: "Congratulations, you guessed correctly.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Nope", message: "Your guess was bad and you should feel bad.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
         
         newCryptexAndReset()
     }
     
-    
+    func presentNoTimeRemainingAlert () {
+        
+        let alert = UIAlertController(title: "Sorry", message: "You are out of time.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+        
+        newCryptexAndReset()
+    }
     
     
     
