@@ -55,6 +55,29 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
     }
     
+    func hasMatchingPassword() -> Bool {
+        //Get the letter for each row.
+        guard let password = cryptexController.currentCryptex?.password else { return false }
+        
+        var lettersArray: [String] = []
+        for number in 0..<password.count {
+            let rowIndex = pickerView.selectedRow(inComponent: number)
+    
+            guard let letter = pickerView(pickerView, titleForRow: rowIndex, forComponent: number) else { continue }
+            
+            lettersArray.append(letter)
+        }
+        
+        let word = lettersArray.joined().lowercased()
+        
+        if word == password {
+           return true
+        } else {
+            return false
+        }
+    }
+    //Store each letter in an array of strings
+    
     
     @IBAction func unlockButtonTapped(_ sender: Any) {
 
