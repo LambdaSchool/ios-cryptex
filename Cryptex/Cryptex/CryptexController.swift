@@ -19,8 +19,8 @@ class CryptextController {
     var currentCryptext: Cryptex?
     
     func randomCryptex() -> Cryptex {
-        let randomCryptext = cryptexts.randomElement()!
-        return randomCryptext
+        _ = cryptexts.randomElement()!
+        
     }
     
   

@@ -82,6 +82,53 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         return word == currentPassword.password.lowercased()
     }
     
+    // timer
+    
+    var countdownTimer: Timer?
+    
+   func reset() {
+    
+    if let timer = countdownTimer {
+        timer.invalidate()
+    }
+    
+    countdownTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: false, block: { (_) in
+        self.presentNoTimeRemainingAlert()})
+    
+    for i in 0 ... cryptextController.currentCryptext!.password.count {
+        cryptextPickerView.selectRow(0, inComponent: i, animated: true)
+    }
+    }
+    
+    func newCryptexAndReset() {
+        cryptextController.randomCryptex()
+        updateViews()
+        reset()
+    }
+    
+    // alert controllers
+    
+    func presentCorrectPasswordAlert() {
+           let alert = UIAlertController(title: "Correct", message: "Congratulations, you guessed correctly.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+        
+       
+    }
+    
+    func presentIncorrectPasswordAlert() {
+        let alert = UIAlertController(title: "Correct", message: "Congratulations, you guessed correctly.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+        
+        newCryptexAndReset()
+    }
+    
+    
+    
+    
+    
+    
     @IBAction func unlockButtonPressed(_ sender: Any) {
     }
 
