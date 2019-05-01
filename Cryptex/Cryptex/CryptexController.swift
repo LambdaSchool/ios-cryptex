@@ -9,10 +9,11 @@
 import Foundation
 
 class CryptexController {
-    private let cryptex: [Cryptex] = [Cryptex(password: "Hello", hint: "A greeting"),
-                              Cryptex(password: "Pizza", hint: "Italian triangles"),
-                              Cryptex(password: "var", hint: "Not a let")]
+    private let cryptex: [Cryptex] = [Cryptex(password: "CRYPTEX", hint: "The name of this game"),
+                              Cryptex(password: "PIZZA", hint: "Italian triangles"),
+                              Cryptex(password: "VAR", hint: "Not a let")]
     var currentCryptex: Cryptex?
+    
     
     init() {
         currentCryptex = randomCryptex()
