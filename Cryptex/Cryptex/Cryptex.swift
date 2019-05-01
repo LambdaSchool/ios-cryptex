@@ -10,5 +10,5 @@ import Foundation
 
 struct Cryptex {
 	var password: String
-	var hit: String
+	var hint: String
 }

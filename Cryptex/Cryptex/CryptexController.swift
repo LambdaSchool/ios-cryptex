@@ -19,9 +19,9 @@ class CryptexController {
 	
 	init() {
 		
-		cryptexs.append(Cryptex(password: "cryptex", hit: "The thing you are trying to solve right now"))
-		cryptexs.append(Cryptex(password: "lambda", hit: "The name of your scool"))
-		cryptexs.append(Cryptex(password: "code", hit: "The code is a code"))
+		cryptexs.append(Cryptex(password: "cryptex", hint: "The thing you are trying to solve right now"))
+		cryptexs.append(Cryptex(password: "lambda", hint: "The name of your scool"))
+		cryptexs.append(Cryptex(password: "code", hint: "The code is a code"))
 		
 		randomCryptex()
 	}
