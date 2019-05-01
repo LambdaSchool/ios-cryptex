@@ -13,6 +13,7 @@ class CryptexViewController: UIViewController {
 	@IBOutlet var hintLabel: UILabel!
 	@IBOutlet var cryptexPicker: UIPickerView!
 	@IBOutlet var unlockButton: UIButton!
+	@IBOutlet var timeSlider: UISlider!
 	
 	let cryptexController = CryptexController()
 	
@@ -35,11 +36,6 @@ class CryptexViewController: UIViewController {
 	func updateViews() {
 		hintLabel.text = cryptexController.currentCryptex?.hint
 		cryptexPicker.reloadAllComponents()
-		guard let dataSource = cryptexPicker.dataSource else { return }
-		let lettersCount = dataSource.numberOfComponents(in: cryptexPicker)
-		for component in 0..<lettersCount {
-			cryptexPicker.selectRow(0, inComponent: component, animated: true)
-		}
 	}
 	
 	//MARK:- Game logic
@@ -67,8 +63,13 @@ class CryptexViewController: UIViewController {
 	}
 	
 	func setTimer() {
-		finishTime = CFAbsoluteTimeGetCurrent() + (cryptexController.currentCryptex?.time ?? fallbackDefaultTime)
-		countdownTimer = Timer.scheduledTimer(withTimeInterval: 0.03, repeats: true, block: { [weak self] (timer) in
+		let totalTime = cryptexController.currentCryptex?.time ?? fallbackDefaultTime
+		finishTime = CFAbsoluteTimeGetCurrent() + totalTime
+		timeSlider.maximumValue = Float(totalTime)
+		timeSlider.minimumValue = 0
+		timeSlider.value = Float(totalTime)
+
+		countdownTimer = Timer.scheduledTimer(withTimeInterval: 1/60, repeats: true, block: { [weak self] (timer) in
 			self?.checkTimeRemaining()
 		})
 	}
@@ -83,15 +84,12 @@ class CryptexViewController: UIViewController {
 		guard let finishTime = finishTime else { return }
 		let current = CFAbsoluteTimeGetCurrent()
 		let remaining = finishTime - current
-		let percent = remaining / (cryptexController.currentCryptex?.time ?? fallbackDefaultTime)
+		timeSlider.value = Float(remaining)
 		
 		if remaining <= 0 {
-			//do stuff
 			reset()
 			presentNoTimeRemainingAlert()
 		}
-		
-		print(percent)
 	}
 	
 	func presentCorrectPasswordAlert() {
