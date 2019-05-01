@@ -14,13 +14,49 @@ class CryptexViewController: UIViewController {
 	@IBOutlet var cryptexPicker: UIPickerView!
 	@IBOutlet var unlockButton: UIButton!
 	
+	let cryptexController = CryptexController()
+	
+	let letters = Array("ABCDEFGHIJKLMNOPQRSTUVWXYZ").map{ String($0) }
+	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		unlockButton.layer.cornerRadius = 10
 	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		updateViews()
+	}
 
+	func updateViews() {
+		hintLabel.text = cryptexController.currentCryptex?.hint
+		cryptexPicker.reloadAllComponents()
+	}
+	
+	//MARK:- Game logic
+	
+	func hasMatchingPassword() -> Bool {
+		guard let dataSource = cryptexPicker.dataSource, let delegate = cryptexPicker.delegate else { return false }
+		let lettersCount = dataSource.numberOfComponents(in: cryptexPicker)
+		var word = ""
+		for index in 0..<lettersCount {
+			let selectedRow = cryptexPicker.selectedRow(inComponent: index)
+			if let letter = delegate.pickerView?(cryptexPicker, titleForRow: selectedRow, forComponent: index) {
+				word += letter
+			}
+		}
+		
+		return word.lowercased() == cryptexController.currentCryptex?.password.lowercased()
+	}
+	
+	//MARK: actions
 	@IBAction func unlockButtonPressed(_ sender: UIButton) {
+		print(hasMatchingPassword())
+	}
+	
+	@IBAction func newGameButtonPressed(_ sender: UIBarButtonItem) {
+		
 	}
 	
 }
@@ -28,12 +64,15 @@ class CryptexViewController: UIViewController {
 
 extension CryptexViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 	func numberOfComponents(in pickerView: UIPickerView) -> Int {
-		return 0
+		return cryptexController.currentCryptex?.password.count ?? 0
 	}
 	
 	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-		return 0
+		return letters.count
 	}
 	
+	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+		return letters[row]
+	}
 	
 }

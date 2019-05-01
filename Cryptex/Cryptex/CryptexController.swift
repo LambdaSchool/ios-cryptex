@@ -23,6 +23,7 @@ class CryptexController {
 			createCryptex(hint: "Common pet", password: "cat", time: 60)
 			createCryptex(hint: "A ____ in the hand is worth two in the bush", password: "bird", time: 60 * 2)
 		}
+		randomizeCryptex()
 	}
 	
 	func createCryptex(hint: String, password: String, time: TimeInterval) {
