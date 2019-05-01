@@ -18,6 +18,8 @@ class CryptexViewController: UIViewController {
 	
 	let letters = Array("ABCDEFGHIJKLMNOPQRSTUVWXYZ").map{ String($0) }
 	
+	var countdownTimer: Timer?
+	var finishTime: TimeInterval?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -27,11 +29,17 @@ class CryptexViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		updateViews()
+		newCryptexAndReset()
 	}
 
 	func updateViews() {
 		hintLabel.text = cryptexController.currentCryptex?.hint
 		cryptexPicker.reloadAllComponents()
+		guard let dataSource = cryptexPicker.dataSource else { return }
+		let lettersCount = dataSource.numberOfComponents(in: cryptexPicker)
+		for component in 0..<lettersCount {
+			cryptexPicker.selectRow(0, inComponent: component, animated: true)
+		}
 	}
 	
 	//MARK:- Game logic
@@ -50,13 +58,83 @@ class CryptexViewController: UIViewController {
 		return word.lowercased() == cryptexController.currentCryptex?.password.lowercased()
 	}
 	
+	
+	func newCryptexAndReset() {
+		reset()
+		cryptexController.randomizeCryptex()
+		setTimer()
+		updateViews()
+	}
+	
+	func setTimer() {
+		finishTime = CFAbsoluteTimeGetCurrent() + (cryptexController.currentCryptex?.time ?? fallbackDefaultTime)
+		countdownTimer = Timer.scheduledTimer(withTimeInterval: 0.03, repeats: true, block: { [weak self] (timer) in
+			self?.checkTimeRemaining()
+		})
+	}
+	
+	let fallbackDefaultTime: TimeInterval = 60
+	func reset() {
+		countdownTimer?.invalidate()
+		updateViews()
+	}
+	
+	func checkTimeRemaining() {
+		guard let finishTime = finishTime else { return }
+		let current = CFAbsoluteTimeGetCurrent()
+		let remaining = finishTime - current
+		let percent = remaining / (cryptexController.currentCryptex?.time ?? fallbackDefaultTime)
+		
+		if remaining <= 0 {
+			//do stuff
+			reset()
+			presentNoTimeRemainingAlert()
+		}
+		
+		print(percent)
+	}
+	
+	func presentCorrectPasswordAlert() {
+		let ac = UIAlertController(title: "Woot", message: "You've guessed the password!", preferredStyle: .alert)
+		ac.addAction(UIAlertAction(title: "Nice", style: .default, handler: { [weak self] (action) in
+			self?.newCryptexAndReset()
+		}))
+		present(ac, animated: true)
+	}
+	
+	func presentIncorrectPasswordAlert() {
+		let ac = UIAlertController(title: "Ugh", message: "You're wrong!", preferredStyle: .alert)
+		ac.addAction(UIAlertAction(title: "Keep Trying", style: .default, handler: nil))
+		ac.addAction(UIAlertAction(title: "Try a Different Cryptex", style: .default, handler: { [weak self] (action) in
+			self?.newCryptexAndReset()
+		}))
+		present(ac, animated: true)
+
+	}
+	
+	func presentNoTimeRemainingAlert() {
+		let ac = UIAlertController(title: "Drat!", message: "You've run out of time!", preferredStyle: .alert)
+		ac.addAction(UIAlertAction(title: "I want to cheat.", style: .default) { [weak self] alert in
+			self?.setTimer()
+		})
+		ac.addAction(UIAlertAction(title: "Try a Different Cryptex", style: .default){ [weak self] (action) in
+			self?.newCryptexAndReset()
+		})
+		present(ac, animated: true)
+	}
+	
 	//MARK: actions
 	@IBAction func unlockButtonPressed(_ sender: UIButton) {
-		print(hasMatchingPassword())
+		if hasMatchingPassword() {
+			reset()
+			presentCorrectPasswordAlert()
+		} else {
+			presentIncorrectPasswordAlert()
+		}
 	}
 	
 	@IBAction func newGameButtonPressed(_ sender: UIBarButtonItem) {
-		
+		newCryptexAndReset()
 	}
 	
 }

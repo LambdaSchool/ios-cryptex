@@ -19,23 +19,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dhQ-Xk-nTJ">
-                                <rect key="frame" x="16" y="289" width="382" height="318.5"/>
+                                <rect key="frame" x="16" y="285" width="382" height="326.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIv-ly-Cp7">
-                                        <rect key="frame" x="170" y="0.0" width="42" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aIv-ly-Cp7">
+                                        <rect key="frame" x="162" y="0.0" width="58.5" height="28.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AE2-4p-G4B">
-                                        <rect key="frame" x="31" y="36.5" width="320" height="216"/>
+                                        <rect key="frame" x="31" y="44.5" width="320" height="216"/>
                                         <connections>
                                             <outlet property="dataSource" destination="BYZ-38-t0r" id="mc4-Hf-eva"/>
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="GaA-pb-dDB"/>
                                         </connections>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKT-H9-Wqc">
-                                        <rect key="frame" x="121" y="268.5" width="140" height="50"/>
+                                        <rect key="frame" x="121" y="276.5" width="140" height="50"/>
                                         <color key="backgroundColor" red="0.45516920332279798" green="0.38290793149686292" blue="0.0048967013909572074" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="140" id="0Pu-IW-NlQ"/>
