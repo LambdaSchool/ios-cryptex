@@ -8,7 +8,9 @@
 
 import UIKit
 
-class CryptexViewController: UIViewController { //UIPickerViewDelegate, UIPickerViewDataSource {
+class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    var cryptexController = CryptexController()
     
     var letters = ["A", "B", "C", "D",
                    "E", "F", "G", "H",
@@ -19,19 +21,22 @@ class CryptexViewController: UIViewController { //UIPickerViewDelegate, UIPicker
                    "Y", "Z"]
     
     
-//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//        <#code#>
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        <#code#>
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        <#code#>
-//    }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        // For the number of components, think about how you can figure out how many characters are in the `currentCryptex`'s password.
+        return currentCryptex.password.count
+    }
 
-    var cryptexController = CryptexController()
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+         // For the number of rows, we want to show as many rows as there are letters.
+        return letters.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        // For the title of each row, we want to show the letter that corresponds to the row. i.e. row 0 should show "A", row 1 should show "B", etc.
+
+    }
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +44,12 @@ class CryptexViewController: UIViewController { //UIPickerViewDelegate, UIPicker
         // Do any additional setup after loading the view.
     }
     
-
+    func updateViews() {
+        hintLabel.text = currentCryptex.hint
+        //reload components of the picker view
+        
+        
+    }
     
     
     @IBAction func unlockButtonTapped(_ sender: Any) {
