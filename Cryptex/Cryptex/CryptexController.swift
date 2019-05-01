@@ -45,6 +45,5 @@ class CryptexController {
     
     func createCryptex(with password: String, hint: String) {
         cryptexes.append(Cryptex(password: password, hint: hint))
-        print("Created a new cryptex with \(password) and \(hint).")
     }
 }
