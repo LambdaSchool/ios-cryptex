@@ -11,6 +11,8 @@ import Foundation
 
 class CryptexController {
 	
+	
+	
 	func randomCryptex(){
 		if let randomCryptex = cryptexs.randomElement() {
 			currentCryptex = randomCryptex
@@ -18,15 +20,19 @@ class CryptexController {
 	}
 	
 	init() {
-		
 		cryptexs.append(Cryptex(password: "cryptex", hint: "The thing you are trying to solve right now"))
 		cryptexs.append(Cryptex(password: "lambda", hint: "The name of your scool"))
 		cryptexs.append(Cryptex(password: "code", hint: "The code is a code"))
-		
+		cryptexs.append(Cryptex(password: "endGame", hint: "What Avenger Movie is out Right now"))
 		randomCryptex()
 	}
+	
+	
 	
 	var currentCryptex: Cryptex?
 	private(set) var cryptexs: [Cryptex] = []
 }
 
+extension CryptexController {
+	
+}
