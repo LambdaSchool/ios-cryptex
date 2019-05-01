@@ -12,6 +12,8 @@
 		ECF4D993227A290800AA79FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECF4D991227A290800AA79FE /* Main.storyboard */; };
 		ECF4D995227A290900AA79FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECF4D994227A290900AA79FE /* Assets.xcassets */; };
 		ECF4D998227A290900AA79FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECF4D996227A290900AA79FE /* LaunchScreen.storyboard */; };
+		ECF4D9A0227A2C0C00AA79FE /* Cryptex.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF4D99F227A2C0C00AA79FE /* Cryptex.swift */; };
+		ECF4D9A2227A2C8700AA79FE /* CryptexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF4D9A1227A2C8700AA79FE /* CryptexController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		ECF4D994227A290900AA79FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECF4D997227A290900AA79FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECF4D999227A290900AA79FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECF4D99F227A2C0C00AA79FE /* Cryptex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptex.swift; sourceTree = "<group>"; };
+		ECF4D9A1227A2C8700AA79FE /* CryptexController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptexController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 			isa = PBXGroup;
 			children = (
 				ECF4D98D227A290800AA79FE /* AppDelegate.swift */,
+				ECF4D99F227A2C0C00AA79FE /* Cryptex.swift */,
+				ECF4D9A1227A2C8700AA79FE /* CryptexController.swift */,
 				ECF4D98F227A290800AA79FE /* CryptexViewController.swift */,
 				ECF4D991227A290800AA79FE /* Main.storyboard */,
 				ECF4D994227A290900AA79FE /* Assets.xcassets */,
@@ -136,6 +142,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECF4D990227A290800AA79FE /* CryptexViewController.swift in Sources */,
+				ECF4D9A2227A2C8700AA79FE /* CryptexController.swift in Sources */,
+				ECF4D9A0227A2C0C00AA79FE /* Cryptex.swift in Sources */,
 				ECF4D98E227A290800AA79FE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
