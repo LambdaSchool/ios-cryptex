@@ -16,8 +16,12 @@ class CryptexController {
     init() {
         
         // Add some test data
-        cryptexes.append(Cryptex(password: "CRYPTEX", hint: "The name of this application"))
-        cryptexes.append(Cryptex(password: "SWIFT", hint: "The best programming language ever"))
+        cryptexes.append(Cryptex(password: "Cryptex", hint: "The name of this application"))
+        cryptexes.append(Cryptex(password: "Swift", hint: "The best programming language ever"))
+        cryptexes.append(Cryptex(password: "Paul", hint: "First name of your sprint 1 & 2 instructor"))
+        cryptexes.append(Cryptex(password: "Nelson", hint: "First name of your PM"))
+        cryptexes.append(Cryptex(password: "Austen", hint: "First name of Lambda CEO"))
+        cryptexes.append(Cryptex(password: "Apple", hint: "Company that makes the iPhone"))
         
         // Grab a random cryptex and assign it to currentCryptex
         randomCryptex()
