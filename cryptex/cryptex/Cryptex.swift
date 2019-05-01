@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct Cryptex {
+    var password: String
+    var hint: String
+}
