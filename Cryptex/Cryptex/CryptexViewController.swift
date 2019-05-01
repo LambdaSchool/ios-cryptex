@@ -30,7 +30,12 @@ class CryptexViewController: UIViewController {
     }
     
     @IBAction func unlockButtonPressed(_ sender: UIButton) {
-        print(cryptexController.hasMatchingPassword(guess: guessToString()))
+        
+        if cryptexController.hasMatchingPassword(guess: guessToString()) {
+            presentCorrectPasswordAlert()
+        } else {
+            presentIncorrectPasswordAlert()
+        }
     }
     
     func updateViews() {
@@ -65,9 +70,7 @@ class CryptexViewController: UIViewController {
         }
         
         // Start a new 60 second timer
-        countdownTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: false) { countdownTimer in
-            print("Time is done!")
-        }
+        countdownTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(presentNoTimeRemainingAlert), userInfo: nil, repeats: false)
         
         // TODO: Reset the pickerView
     }
@@ -80,7 +83,7 @@ class CryptexViewController: UIViewController {
     }
 }
 
-    // MARK: - PickerView DataSource and Delegate Methods
+// MARK: - PickerView DataSource and Delegate Methods
 extension CryptexViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -96,5 +99,44 @@ extension CryptexViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return letters[row]
+    }
+}
+
+// MARK: - AlertController methods
+
+extension CryptexViewController {
+    
+    // TODO: Clean this up... Can be reduced to just a single method.
+    func presentCorrectPasswordAlert() {
+        
+        let alert = UIAlertController(title: "Correct!", message: "You guessed the Cryptex correctly.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "New Cryptex", style: .default, handler: { action in
+            self.newCryptexAndReset()
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func presentIncorrectPasswordAlert() {
+        
+        let alert = UIAlertController(title: "Incorrect", message: "You guess the Cryptex incorrectly.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { action in
+            self.reset()
+        }))
+        alert.addAction(UIAlertAction(title: "New Cryptex", style: .default, handler: { action in
+            self.newCryptexAndReset()
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func presentNoTimeRemainingAlert() {
+        
+        let alert = UIAlertController(title: "Out of Time", message: "You didn't guess fast enough.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { action in
+            self.reset()
+        }))
+        alert.addAction(UIAlertAction(title: "New Cryptex", style: .default, handler: { action in
+            self.newCryptexAndReset()
+        }))
+        present(alert, animated: true, completion: nil)
     }
 }
