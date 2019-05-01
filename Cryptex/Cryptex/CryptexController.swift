@@ -17,10 +17,12 @@ class CryptexController {
         cryptexes.append(Cryptex(password: "timer", hint: "A  device that counts down"))
         cryptexes.append(Cryptex(password: "foo", hint: "A common placeholder"))
         cryptexes.append(Cryptex(password: "cryptex", hint: "The game you're playing now"))
+        
+        randomCryptex()
     }
     
     func randomCryptex() {
-        currentCryptex = cryptexes[Int.random(in: 0..<cryptexes.count)]
+        currentCryptex = cryptexes.randomElement()
     }
     
     
