@@ -14,7 +14,7 @@ class CryptexController {
                               Cryptex(password: "VAR", hint: "Not a let"),
                               Cryptex(password: "AIRTABLE", hint: "Tool used for daily standup"),
                               Cryptex(password: "CAT", hint: "Small household feline pet"),
-                              Cryptex(password: "IPHONE", hint: "The type of phone we develop for")]
+                                Cryptex(password: "IPHONE", hint: "The type of phone we develop for")]
     var currentCryptex: Cryptex?
     
     
