@@ -72,7 +72,10 @@ class CryptexViewController: UIViewController {
         // Start a new 60 second timer
         countdownTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(presentNoTimeRemainingAlert), userInfo: nil, repeats: false)
         
-        // TODO: Reset the pickerView
+        // Reset the pickerView
+        for component in 0...(pickerView.numberOfComponents - 1) {
+            pickerView.selectRow(0, inComponent: component, animated: true)
+        }
     }
     
     func newCryptexAndReset() {
