@@ -23,7 +23,14 @@ class CryptexController {
         randomCryptex()
     }
     
-    private func randomCryptex() {
+    func randomCryptex() {
         currentCryptex = cryptexes.randomElement()
+    }
+    
+    func hasMatchingPassword(guess: String) -> Bool {
+        
+        guard let currentCryptex = currentCryptex else { return false }
+        
+        return guess.uppercased() == currentCryptex.password.uppercased()
     }
 }
