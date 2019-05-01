@@ -11,8 +11,8 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     
     
-    var cryptexController: CryptexController?
-    
+    var cryptexController = CryptexController()
+    @objc let countdownTimer: Timer?
     var letters = ["A", "B", "C", "D",
                    "E", "F", "G", "H",
                    "I", "J", "K", "L",
@@ -35,7 +35,7 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         // For the number of components, think about how you can figure out how many characters are in the `currentCryptex`'s password.
-        guard let cryptex = cryptexController?.currentCryptex else { return 0 }
+        guard let cryptex = cryptexController.currentCryptex else { return 0 }
         return cryptex.password.count
     }
     
@@ -49,21 +49,40 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         return letters[row]
     }
     func updateViews() {
-        guard let cryptexHint = cryptexController?.currentCryptex?.hint else { return }
-        
+        guard let cryptexHint = cryptexController.currentCryptex?.hint else { return }
         cryptexLabel.text = cryptexHint
-        
         cryptexPickerView.reloadAllComponents()
+    }
+    func hasMatchingPassword() -> Bool{
+        let numberOfLetters = cryptexPickerView.numberOfComponents
         
+        var passwordEntered: [String] = []
+        for letter in 0...numberOfLetters{
+            let currentComponent = cryptexPickerView.selectedRow(inComponent: letter)
+            passwordEntered.append(letters[currentComponent])
+        }
         
+        let passwordEnteredString = passwordEntered.joined(separator: "")
+        
+        if passwordEnteredString == cryptexController.currentCryptex?.password{
+            return true
+        } else {
+            return false
+        }
     }
     
+    func reset(){
+        countdownTimer?.invalidate()
+        var newTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(getter: countdownTimer), userInfo: nil, repeats: true)
+        
+    }
+   
     
-    
-    
+    //Mark: - IBOutlets
     @IBOutlet weak var cryptexLabel: UILabel!
     @IBOutlet weak var cryptexPickerView: UIPickerView!
     @IBOutlet weak var unlockButton: UIButton!
+    
     
     
     
