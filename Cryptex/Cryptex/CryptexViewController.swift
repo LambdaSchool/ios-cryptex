@@ -29,6 +29,11 @@ class CryptexViewController: UIViewController {
         reset()
     }
     
+    @IBAction func addButtonPressed(_ sender: UIButton) {
+        
+        presentAddCryptexAlert()
+    }
+    
     @IBAction func unlockButtonPressed(_ sender: UIButton) {
         
         if cryptexController.hasMatchingPassword(guess: guessToString()) {
@@ -109,7 +114,6 @@ extension CryptexViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 
 extension CryptexViewController {
     
-    // TODO: Clean this up... Can be reduced to just a single method.
     func presentCorrectPasswordAlert() {
         
         let alert = UIAlertController(title: "Correct!", message: "You guessed the Cryptex correctly.", preferredStyle: .alert)
@@ -141,5 +145,27 @@ extension CryptexViewController {
             self.newCryptexAndReset()
         }))
         present(alert, animated: true, completion: nil)
+    }
+    
+    func presentAddCryptexAlert() {
+        
+        let alert = UIAlertController(title: "Add a Cryptex", message: nil, preferredStyle: .alert)
+        
+        alert.addTextField(configurationHandler: nil)
+        alert.addTextField(configurationHandler: nil)
+        alert.textFields![0].placeholder = "Answer"
+        alert.textFields![1].placeholder = "Hint"
+        
+        let action = UIAlertAction(title: "Submit", style: .default) { [unowned alert] _ in
+            guard let password = alert.textFields![0].text,
+            let hint = alert.textFields![1].text
+            else { return }
+            self.cryptexController.createCryptex(with: password, hint: hint)
+            self.newCryptexAndReset()
+        }
+        
+        alert.addAction(action)
+        
+        present(alert, animated: true)
     }
 }

@@ -17,9 +17,8 @@ class CryptexController {
         
         // Add some test data
         cryptexes.append(Cryptex(password: "Cryptex", hint: "The name of this application"))
-        cryptexes.append(Cryptex(password: "Swift", hint: "The best programming language ever"))
-        cryptexes.append(Cryptex(password: "Paul", hint: "First name of your sprint 1 & 2 instructor"))
-        cryptexes.append(Cryptex(password: "Nelson", hint: "First name of your PM"))
+        cryptexes.append(Cryptex(password: "Swift", hint: "The coolest programming language ever"))
+        cryptexes.append(Cryptex(password: "Green", hint: "Grass is what color?"))
         cryptexes.append(Cryptex(password: "Austen", hint: "First name of Lambda CEO"))
         cryptexes.append(Cryptex(password: "Apple", hint: "Company that makes the iPhone"))
         
@@ -42,5 +41,10 @@ class CryptexController {
         guard let currentCryptex = currentCryptex else { return false }
         
         return guess.uppercased() == currentCryptex.password.uppercased()
+    }
+    
+    func createCryptex(with password: String, hint: String) {
+        cryptexes.append(Cryptex(password: password, hint: hint))
+        print("Created a new cryptex with \(password) and \(hint).")
     }
 }

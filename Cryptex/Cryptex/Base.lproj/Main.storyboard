@@ -28,7 +28,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KlR-xx-ta2">
-                                        <rect key="frame" x="0.0" y="28.5" width="382" height="216"/>
+                                        <rect key="frame" x="0.0" y="28" width="476" height="216"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRP-Ad-0du">
                                         <rect key="frame" x="0.0" y="252.5" width="382" height="30"/>
@@ -39,10 +39,18 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sWa-Lt-Inc">
+                                <rect key="frame" x="376" y="52" width="22" height="22"/>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="DV8-b2-yPn" eventType="touchUpInside" id="BTL-Tk-56r"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="i4o-Di-e8y" firstAttribute="centerX" secondItem="qyK-Sg-B2o" secondAttribute="centerX" id="2fs-9Q-dXI"/>
+                            <constraint firstItem="sWa-Lt-Inc" firstAttribute="top" secondItem="s9N-yW-ldS" secondAttribute="top" constant="8" id="Aow-83-CMJ"/>
+                            <constraint firstItem="s9N-yW-ldS" firstAttribute="trailing" secondItem="sWa-Lt-Inc" secondAttribute="trailing" constant="16" id="Enz-qz-tFe"/>
                             <constraint firstItem="i4o-Di-e8y" firstAttribute="centerY" secondItem="qyK-Sg-B2o" secondAttribute="centerY" id="Gn5-vy-CNv"/>
                             <constraint firstItem="i4o-Di-e8y" firstAttribute="leading" secondItem="s9N-yW-ldS" secondAttribute="leading" constant="16" id="d00-PW-gEd"/>
                             <constraint firstItem="s9N-yW-ldS" firstAttribute="trailing" secondItem="i4o-Di-e8y" secondAttribute="trailing" constant="16" id="y0E-Hc-Pgr"/>
