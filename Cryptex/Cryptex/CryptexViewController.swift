@@ -155,6 +155,8 @@ extension CryptexViewController {
         alert.addTextField(configurationHandler: nil)
         alert.textFields![0].placeholder = "Answer"
         alert.textFields![1].placeholder = "Hint"
+        alert.textFields![0].autocapitalizationType = .sentences
+        alert.textFields![1].autocapitalizationType = .sentences
         
         let action = UIAlertAction(title: "Submit", style: .default) { [unowned alert] _ in
             guard let password = alert.textFields![0].text,
