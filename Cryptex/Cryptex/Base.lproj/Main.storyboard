@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hQS-hG-klL">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cryptexinator-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="CryptexViewController" customModule="Cryptex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dhQ-Xk-nTJ">
+                                <rect key="frame" x="16" y="285" width="382" height="326.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aIv-ly-Cp7">
+                                        <rect key="frame" x="162" y="0.0" width="58.5" height="28.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AE2-4p-G4B">
+                                        <rect key="frame" x="31" y="44.5" width="320" height="216"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="mc4-Hf-eva"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="GaA-pb-dDB"/>
+                                        </connections>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKT-H9-Wqc">
+                                        <rect key="frame" x="121" y="276.5" width="140" height="50"/>
+                                        <color key="backgroundColor" red="0.45516920332279798" green="0.38290793149686292" blue="0.0048967013909572074" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="0Pu-IW-NlQ"/>
+                                            <constraint firstAttribute="height" constant="50" id="lsM-HO-gtb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <state key="normal" title="Unlock...">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="unlockButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cmf-I9-WYl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <slider opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Vjp-hG-t6y">
+                                <rect key="frame" x="14" y="824" width="386" height="31"/>
+                                <color key="tintColor" red="0.0" green="0.37992407569999997" blue="0.16470744749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="maximumTrackTintColor" red="1" green="0.0" blue="0.022732125530000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" red="0.6828044041450777" green="0.57220420911634584" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vjp-hG-t6y" secondAttribute="trailing" constant="16" id="BF8-Uj-V6e"/>
+                            <constraint firstItem="Vjp-hG-t6y" firstAttribute="top" relation="greaterThanOrEqual" secondItem="dhQ-Xk-nTJ" secondAttribute="bottom" id="Mb6-cS-pld"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dhQ-Xk-nTJ" secondAttribute="trailing" constant="16" id="MeI-BD-bGP"/>
+                            <constraint firstItem="dhQ-Xk-nTJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" id="NIm-9X-fqU"/>
+                            <constraint firstItem="Vjp-hG-t6y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="chh-0U-HaA"/>
+                            <constraint firstItem="dhQ-Xk-nTJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qJ1-oE-hE7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Vjp-hG-t6y" secondAttribute="bottom" constant="8" id="sBL-CO-DQF"/>
+                            <constraint firstItem="dhQ-Xk-nTJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="tJC-34-X1y"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Cryptexinator" id="GXE-lX-c2q">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="BeV-hq-cGc">
+                                <connections>
+                                    <segue destination="Nd9-rs-8Fz" kind="show" id="Ad0-he-vuC"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="refresh" id="JIj-ye-Z4l">
+                                <connections>
+                                    <action selector="newGameButtonPressed:" destination="BYZ-38-t0r" id="ZCo-al-92V"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cryptexPicker" destination="AE2-4p-G4B" id="nRZ-h3-e26"/>
+                        <outlet property="hintLabel" destination="aIv-ly-Cp7" id="Q5C-RB-66y"/>
+                        <outlet property="timeSlider" destination="Vjp-hG-t6y" id="srr-oS-QFN"/>
+                        <outlet property="unlockButton" destination="eKT-H9-Wqc" id="97c-py-zuK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="126.5625"/>
+        </scene>
+        <!--Add New Puzzle-->
+        <scene sceneID="hCE-Ow-8bo">
+            <objects>
+                <viewController id="Nd9-rs-8Fz" customClass="CryptexCreatorViewController" customModule="Cryptex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vcj-eI-V2B">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="vNa-Ex-VkH">
+                                <rect key="frame" x="24" y="270" width="366" height="138"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hint (Search engine with 100 zeroes)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fMs-dM-6kd">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password (Google)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nQT-0r-tk8">
+                                        <rect key="frame" x="0.0" y="54" width="366" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" textContentType="username"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Seconds allowed for guessing (numbers only!)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5gU-II-J3y">
+                                        <rect key="frame" x="0.0" y="108" width="366" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" textContentType="postal-code"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.68280440409999998" green="0.57220420910000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="kbR-K7-Cd6" firstAttribute="trailing" secondItem="vNa-Ex-VkH" secondAttribute="trailing" constant="24" id="9sP-cK-AgY"/>
+                            <constraint firstItem="vNa-Ex-VkH" firstAttribute="leading" secondItem="kbR-K7-Cd6" secondAttribute="leading" constant="24" id="IVS-8w-Hpz"/>
+                            <constraint firstItem="vNa-Ex-VkH" firstAttribute="top" secondItem="kbR-K7-Cd6" secondAttribute="top" constant="130" id="zGa-bC-loO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kbR-K7-Cd6"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add New Puzzle" id="fgW-IU-nFx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="DxA-v7-Qri">
+                            <connections>
+                                <action selector="addNewButtonPressed:" destination="Nd9-rs-8Fz" id="ytR-Yg-03i"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="hintTextField" destination="fMs-dM-6kd" id="kFg-b7-y4s"/>
+                        <outlet property="passwordTextField" destination="nQT-0r-tk8" id="rE2-Nu-nG0"/>
+                        <outlet property="secondsTextField" destination="5gU-II-J3y" id="Flc-nB-0m7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U3n-yy-wmS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2116" y="127"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="G8U-XB-OPi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hQS-hG-klL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Dc5-F2-4Hk">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ytl-vx-vnN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2z5-Tt-a8x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="50.724637681159422" y="-547.09821428571422"/>
+        </scene>
+    </scenes>
+</document>
