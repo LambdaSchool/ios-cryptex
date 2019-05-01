@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C08FB41B227A26E000714D06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08FB41A227A26E000714D06 /* AppDelegate.swift */; };
-		C08FB41D227A26E000714D06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08FB41C227A26E000714D06 /* ViewController.swift */; };
 		C08FB420227A26E000714D06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C08FB41E227A26E000714D06 /* Main.storyboard */; };
 		C08FB422227A26E100714D06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C08FB421227A26E100714D06 /* Assets.xcassets */; };
 		C08FB425227A26E100714D06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C08FB423227A26E100714D06 /* LaunchScreen.storyboard */; };
@@ -20,7 +19,6 @@
 /* Begin PBXFileReference section */
 		C08FB417227A26E000714D06 /* Cryptex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08FB41A227A26E000714D06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C08FB41C227A26E000714D06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C08FB41F227A26E000714D06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C08FB421227A26E100714D06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C08FB424227A26E100714D06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,7 +59,6 @@
 			isa = PBXGroup;
 			children = (
 				C08FB41A227A26E000714D06 /* AppDelegate.swift */,
-				C08FB41C227A26E000714D06 /* ViewController.swift */,
 				C08FB41E227A26E000714D06 /* Main.storyboard */,
 				C08FB42E227A28DE00714D06 /* Cryptex.swift */,
 				C08FB430227A295E00714D06 /* CryptexController.swift */,
@@ -144,7 +141,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C08FB41D227A26E000714D06 /* ViewController.swift in Sources */,
 				C08FB41B227A26E000714D06 /* AppDelegate.swift in Sources */,
 				C08FB42D227A283000714D06 /* CryptexViewController.swift in Sources */,
 				C08FB42F227A28DE00714D06 /* Cryptex.swift in Sources */,

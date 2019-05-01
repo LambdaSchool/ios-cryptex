@@ -15,7 +15,8 @@ class CryptexViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet var unlockButton: UIButton!
     
     let cryptexController = CryptexController()
-    var letters = ["A", "B", "C", "D",
+    var countdownTimer: Timer?
+    let letters = ["A", "B", "C", "D",
                    "E", "F", "G", "H",
                    "I", "J", "K", "L",
                    "M", "N", "O", "P",
@@ -38,6 +39,9 @@ class CryptexViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     @IBAction func unlockButtonTapped(_ sender: Any) {
+        if hasMatchingPassword() {
+            presentCorrectPasswordAlert()
+        }
     }
     
     // MARK: - Show a Cryptex
@@ -60,15 +64,42 @@ class CryptexViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
     }
     
-    // MARK: = Game Logic
+    // MARK: - Game Logic
     
-//    func hasMatchingPassword() -> Bool {
-//        var letters: [Character] = []
-//        
-//        for letter in  {
-//            
-//        }
-//    }
+    @objc func hasMatchingPassword() -> Bool {
+        var lettersInView: [String] = []
+        var guess = ""
+        for i in 0..<letterPickerView.numberOfComponents {
+            lettersInView.append(letters[letterPickerView.selectedRow(inComponent: i)])
+            guess += letters[letterPickerView.selectedRow(inComponent: i)]
+        }
+        return guess.uppercased() == cryptexController.currentCryptex?.password.uppercased()
+    }
+    
+    @ objc func myPrint() {
+        print("Time!")
+    }
+
+    func reset() {
+        countdownTimer?.invalidate()
+        countdownTimer = Timer.scheduledTimer(timeInterval: 0.07, target: self, selector: #selector(myPrint), userInfo: nil, repeats: true)
+    }
+    
+    func newCryptexAndReset() {
+        cryptexController.randomCryptex()
+        updateViews()
+        reset()
+    }
+    
+    // MARK: - Alerts
+    
+    func presentCorrectPasswordAlert() {
+        let alert = UIAlertController(title: "You got it!", message: "That was the correct password.", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Play Again", style: .default, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
