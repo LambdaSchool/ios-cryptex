@@ -54,6 +54,7 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     func updateViews() {
         hintLabel.text = cryptexController.currentCryptex?.hint
         self.pickerView.reloadAllComponents()
+        resetPickView()
     }
     
     func getChoice() -> String {
@@ -76,11 +77,25 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
     }
     
+    func resetPickView() {
+        
+        if let range = cryptexController.currentCryptex?.password.count {
+            for i in 0...(range - 1) {
+                self.pickerView.selectRow(0, inComponent: i, animated: true)
+            }
+        }
+    }
+    
     func reset() {
         
         countdownTimer?.invalidate()
-        countdownTimer = Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true, block: timerHandler(timer:))
+        countdownTimer = Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true, block: (timerHandler(timer:)))
         
+    }
+    
+    func timerHandler(timer: Timer) {
+        presentNoTimeRemainingAlert()
+        print("Time out")
     }
     
     func newCryptexAndReset() {
@@ -90,20 +105,45 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         reset()
     }
     
-    func timerHandler(timer: Timer) {
-        print("Done")
+    func presentCorrectPasswordAlert() {
+        
+        let alert = UIAlertController(title: "Correct", message: "You guessed the password corectly", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: (alerHandler(alert:))))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func alerHandler(alert: UIAlertAction) {
+        newCryptexAndReset()
+    }
+    
+    func outOfTimeHandler(alert: UIAlertAction) {
+        reset()
+    }
+    
+    func presentIncorrectPasswordAlert() {
+        
+        let alert = UIAlertController(title: "Guess Again", message: "Sorry you guessed incorrectly", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Guess Again", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "New Cryptex", style: .default, handler: (alerHandler(alert:))))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func presentNoTimeRemainingAlert() {
+        
+        let alert = UIAlertController(title: "Time Out", message: "Sorry you ran out of time", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Reset Timer", style: .default, handler: (outOfTimeHandler(alert:))))
+        alert.addAction(UIAlertAction(title: "New Cryptex", style: .default, handler: (alerHandler(alert:))))
+        present(alert, animated: true, completion: nil)
     }
 
     @IBAction func unlockButtonPressed(_ sender: Any) {
-//
-//        if hasMatchingPassword() {
-//            print("Yay!! You win")
-//            newCryptexAndReset()
-//        } else {
-//            print("Try again")
-//        }
-        newCryptexAndReset()
-        updateViews()
+
+        if hasMatchingPassword() {
+            presentCorrectPasswordAlert()
+            
+        } else {
+            presentIncorrectPasswordAlert()
+        }
     }
     
 }
