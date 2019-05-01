@@ -13,6 +13,8 @@
 		33AAA8A9227A3108006A0EEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33AAA8A8227A3108006A0EEF /* Assets.xcassets */; };
 		33AAA8AC227A3108006A0EEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33AAA8AA227A3108006A0EEF /* LaunchScreen.storyboard */; };
 		33AAA8B7227A3108006A0EEF /* CryptexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AAA8B6227A3108006A0EEF /* CryptexTests.swift */; };
+		33AAA8C2227A34BD006A0EEF /* Cryptex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AAA8C1227A34BD006A0EEF /* Cryptex.swift */; };
+		33AAA8C4227A3510006A0EEF /* CryptexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AAA8C3227A3510006A0EEF /* CryptexController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		33AAA8B2227A3108006A0EEF /* CryptexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33AAA8B6227A3108006A0EEF /* CryptexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptexTests.swift; sourceTree = "<group>"; };
 		33AAA8B8227A3108006A0EEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33AAA8C1227A34BD006A0EEF /* Cryptex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptex.swift; sourceTree = "<group>"; };
+		33AAA8C3227A3510006A0EEF /* CryptexController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptexController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 			children = (
 				33AAA8A1227A3105006A0EEF /* AppDelegate.swift */,
 				33AAA8A3227A3105006A0EEF /* CryptexViewController.swift */,
+				33AAA8C1227A34BD006A0EEF /* Cryptex.swift */,
+				33AAA8C3227A3510006A0EEF /* CryptexController.swift */,
 				33AAA8A5227A3105006A0EEF /* Main.storyboard */,
 				33AAA8A8227A3108006A0EEF /* Assets.xcassets */,
 				33AAA8AA227A3108006A0EEF /* LaunchScreen.storyboard */,
@@ -198,6 +204,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				33AAA8A4227A3105006A0EEF /* CryptexViewController.swift in Sources */,
+				33AAA8C4227A3510006A0EEF /* CryptexController.swift in Sources */,
+				33AAA8C2227A34BD006A0EEF /* Cryptex.swift in Sources */,
 				33AAA8A2227A3105006A0EEF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
