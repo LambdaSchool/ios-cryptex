@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DV8-b2-yPn">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cryptex View Controller-->
+        <scene sceneID="XSM-wa-Zhy">
+            <objects>
+                <viewController id="DV8-b2-yPn" customClass="CryptexViewController" customModule="Cryptex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qyK-Sg-B2o">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="i4o-Di-e8y">
+                                <rect key="frame" x="16" y="307" width="382" height="282.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a hint for the user" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKV-pM-C4F">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KlR-xx-ta2">
+                                        <rect key="frame" x="0.0" y="28" width="476" height="216"/>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRP-Ad-0du">
+                                        <rect key="frame" x="0.0" y="252.5" width="382" height="30"/>
+                                        <state key="normal" title="Unlock"/>
+                                        <connections>
+                                            <action selector="unlockButtonPressed:" destination="DV8-b2-yPn" eventType="touchUpInside" id="qgF-Sl-qL6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sWa-Lt-Inc">
+                                <rect key="frame" x="376" y="52" width="22" height="22"/>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="DV8-b2-yPn" eventType="touchUpInside" id="BTL-Tk-56r"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="i4o-Di-e8y" firstAttribute="centerX" secondItem="qyK-Sg-B2o" secondAttribute="centerX" id="2fs-9Q-dXI"/>
+                            <constraint firstItem="sWa-Lt-Inc" firstAttribute="top" secondItem="s9N-yW-ldS" secondAttribute="top" constant="8" id="Aow-83-CMJ"/>
+                            <constraint firstItem="s9N-yW-ldS" firstAttribute="trailing" secondItem="sWa-Lt-Inc" secondAttribute="trailing" constant="16" id="Enz-qz-tFe"/>
+                            <constraint firstItem="i4o-Di-e8y" firstAttribute="centerY" secondItem="qyK-Sg-B2o" secondAttribute="centerY" id="Gn5-vy-CNv"/>
+                            <constraint firstItem="i4o-Di-e8y" firstAttribute="leading" secondItem="s9N-yW-ldS" secondAttribute="leading" constant="16" id="d00-PW-gEd"/>
+                            <constraint firstItem="s9N-yW-ldS" firstAttribute="trailing" secondItem="i4o-Di-e8y" secondAttribute="trailing" constant="16" id="y0E-Hc-Pgr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="s9N-yW-ldS"/>
+                    </view>
+                    <connections>
+                        <outlet property="hintLabel" destination="SKV-pM-C4F" id="0Pz-Yz-9Wt"/>
+                        <outlet property="pickerView" destination="KlR-xx-ta2" id="hN6-mx-2Tu"/>
+                        <outlet property="unlockButton" destination="rRP-Ad-0du" id="5H6-ec-ivb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mQS-MW-ARj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-16" y="-61"/>
+        </scene>
+    </scenes>
+</document>
