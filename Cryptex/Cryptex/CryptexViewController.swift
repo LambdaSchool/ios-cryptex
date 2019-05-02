@@ -9,6 +9,13 @@
 import UIKit
 
 class CryptexViewController: UIViewController {
+	
+//	override func viewDidAppear(_ animated: Bool) {
+//		super.viewDidAppear(animated)
+//		cryptexController.loadFromPersistentStore()
+//		pickerView.reloadAllComponents()
+//		
+//	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCryptexAlert))
