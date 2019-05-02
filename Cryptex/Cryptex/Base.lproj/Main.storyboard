@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rr5-E5-REi">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cryptex View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="CryptexViewController" customModule="Cryptex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="lIS-ve-AbX">
+                                <rect key="frame" x="16" y="278.5" width="382" height="339.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Solve The crypt " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lP6-sv-dbO">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L6P-8r-l0D">
+                                        <rect key="frame" x="0.0" y="38.5" width="382" height="250"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="G7l-P0-r8A"/>
+                                        </constraints>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57L-FX-OFH">
+                                        <rect key="frame" x="162.5" y="305.5" width="57" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="Unlock"/>
+                                        <connections>
+                                            <action selector="unlockButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nMf-fa-0Te"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="L6P-8r-l0D" secondAttribute="trailing" id="1iY-mC-fx5"/>
+                                    <constraint firstAttribute="bottom" secondItem="57L-FX-OFH" secondAttribute="bottom" id="FZK-2Q-rlm"/>
+                                    <constraint firstItem="57L-FX-OFH" firstAttribute="top" secondItem="L6P-8r-l0D" secondAttribute="bottom" constant="17" id="IKY-BJ-iYR"/>
+                                    <constraint firstItem="L6P-8r-l0D" firstAttribute="leading" secondItem="lIS-ve-AbX" secondAttribute="leading" id="ITy-gy-eIT"/>
+                                    <constraint firstItem="lP6-sv-dbO" firstAttribute="leading" secondItem="lIS-ve-AbX" secondAttribute="leading" id="JDO-vw-ERd"/>
+                                    <constraint firstAttribute="trailing" secondItem="lP6-sv-dbO" secondAttribute="trailing" id="Pe7-EK-kV8"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="lIS-ve-AbX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0nA-dp-Qhc"/>
+                            <constraint firstItem="lIS-ve-AbX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="OB6-Nh-OVd"/>
+                            <constraint firstItem="lIS-ve-AbX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="dLA-w3-Ifq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lIS-ve-AbX" secondAttribute="trailing" constant="16" id="e9v-Fd-pAM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Gh4-FK-5F5"/>
+                    <connections>
+                        <outlet property="hintLabel" destination="lP6-sv-dbO" id="kbK-08-Eut"/>
+                        <outlet property="pickerView" destination="L6P-8r-l0D" id="hbx-Yh-u8S"/>
+                        <outlet property="unlockButton" destination="57L-FX-OFH" id="5JP-Kb-acR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="947.82608695652186" y="18.75"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="V0n-v9-GtH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rr5-E5-REi" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hdA-as-U8n">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="7Uh-MV-kZr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xyr-kp-T6S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-204" y="19"/>
+        </scene>
+    </scenes>
+</document>
