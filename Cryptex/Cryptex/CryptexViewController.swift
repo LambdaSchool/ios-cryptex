@@ -10,21 +10,12 @@ import UIKit
 
 class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-  
-    let cryptextController = CryptextController()
-    // outlets
+    
     @IBOutlet weak var cryptextPickerView: UIPickerView!
     @IBOutlet weak var hintLabel: UILabel!
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.cryptextPickerView.delegate = self
-        self.cryptextPickerView.dataSource = self
-        updateViews()
     
-    }
-    
+    var cryptexController = CryptexController()
+    @objc var countdownTimer: Timer?
     var letters = ["A", "B", "C", "D",
                    "E", "F", "G", "H",
                    "I", "J", "K", "L",
@@ -33,110 +24,104 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                    "U", "V", "W", "X",
                    "Y", "Z"]
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        cryptextPickerView.delegate = self
+        cryptextPickerView.dataSource = self
+        
+        updateViews()
+        
     }
-    // functs for view
-    func updateViews() {
-        if let currentHint = cryptextController.currentCryptext?.hint {
-            hintLabel.text = currentHint
+
+        
+    
+    func presentCorrectPasswordAlert() {
+        
+        let alert = UIAlertController(title: "Correct!", message: "Congratulations, you got it!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Try new cryptex", style: .default, handler: { (alert) in self.newCryptexAndReset()}))
+        present(alert, animated: true, completion: nil)
+        
     }
-        cryptextPickerView.reloadAllComponents()
+    
+    func presentIncorrectPasswordAlert(){
+        let alert = UIAlertController(title: "Wrong!", message: "Your guess was bad and you should feel bad ... keep trying.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Continue guessing!", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+        
+        
     }
+    
+    func presentNoTimeRemainingAlert() {
+        
+        let alert = UIAlertController(title: "No Time", message: "You have have ran out of time! Would you like to reset the Timer?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Reset timer", style: .default, handler: { (alert) in self.reset()}))
+        alert.addAction(UIAlertAction(title: "Try new cryptex", style: .default, handler: { (alert) in self.newCryptexAndReset()}))
+        present(alert, animated: true, completion: nil)
+        
+        
+    }
+    
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         // For the number of components, think about how you can figure out how many characters are in the `currentCryptex`'s password.
-        return cryptextController.currentCryptext!.password.count
+        guard let cryptex = cryptexController.currentCryptex else { return 0 }
+        return cryptex.password.count
     }
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         // For the number of rows, we want to show as many rows as there are letters.
         return letters.count
     }
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         // For the title of each row, we want to show the letter that corresponds to the row. i.e. row 0 should show "A", row 1 should show "B", etc.
         return letters[row]
     }
-    // game logic
-    private func hasMatchingPassword() -> Bool {
+    func updateViews() {
+        guard let cryptexHint = cryptexController.currentCryptex?.hint else { return }
+        hintLabel.text = cryptexHint
+        cryptextPickerView.reloadAllComponents()
+    }
+    func hasMatchingPassword() -> Bool{
+        let numberOfLetters = cryptextPickerView.numberOfComponents - 1
         
-        // Get the title of each row (which should be a single letter) in the picker view (try using a for-in loop) and store each one in an array.
-        
-        guard let currentPassword = cryptextController.currentCryptext else { return false }
-        
-        var characters: [String] = []
-        
-        for i in 0 ... currentPassword.password.count {
-            
-            let row = cryptextPickerView.selectedRow(inComponent: i)
-            
-            
-            guard let title = pickerView(cryptextPickerView, titleForRow: row, forComponent: i) else { continue }
-                characters.append(title)
+        var passwordEntered: [String] = []
+        for letter in 0...numberOfLetters{
+            let currentComponent = cryptextPickerView.selectedRow(inComponent: letter)
+            passwordEntered.append(letters[currentComponent])
         }
-
-
-        //combine array into a single string.
         
-        let word = characters.joined().lowercased()
+        let passwordEnteredString = passwordEntered.joined(separator: "")
         
-        //lower case and return bool
-        return word == currentPassword.password.lowercased()
+        if passwordEnteredString == cryptexController.currentCryptex?.password{
+            return true
+        } else {
+            return false
+        }
     }
     
-    // timer
-    
-    var countdownTimer: Timer?
-    
-   func reset() {
-    
-    if let timer = countdownTimer {
-        timer.invalidate()
+    func reset(){
+        countdownTimer?.invalidate()
+        _ = Timer.scheduledTimer(withTimeInterval: 60.00, repeats: false) { (countdownTimer) in
+            self.presentNoTimeRemainingAlert()
+        }
     }
-    
-    countdownTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: false, block: { (_) in
-        self.presentNoTimeRemainingAlert()})
-    
-    for i in 0 ... cryptextController.currentCryptext!.password.count {
-        cryptextPickerView.selectRow(0, inComponent: i, animated: true)
-    }
-    }
-    
     func newCryptexAndReset() {
-        cryptextController.randomCryptex()
+        cryptexController.randomCryptex()
         updateViews()
         reset()
     }
     
-    // alert controllers
-    
-    func presentCorrectPasswordAlert() {
-           let alert = UIAlertController(title: "Correct", message: "Congratulations, you guessed correctly.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-        
-       
-    }
-    
-    func presentIncorrectPasswordAlert() {
-        let alert = UIAlertController(title: "Nope", message: "Your guess was bad and you should feel bad.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-        
-        newCryptexAndReset()
-    }
-    
-    func presentNoTimeRemainingAlert () {
-        
-        let alert = UIAlertController(title: "Sorry", message: "You are out of time.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-        
-        newCryptexAndReset()
-    }
-    
-    
-    
     
     @IBAction func unlockButtonPressed(_ sender: Any) {
+        if hasMatchingPassword(){
+            presentCorrectPasswordAlert()
+        } else {
+            presentIncorrectPasswordAlert()
+        }
+        
     }
 
 }
+

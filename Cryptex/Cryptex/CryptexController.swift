@@ -9,24 +9,30 @@
 import Foundation
 
 
-class CryptextController {
+
+class CryptexController {
+    
     init() {
-        currentCryptext = randomCryptex()
+        randomCryptex()
     }
     
-    private var cryptexts: [Cryptex] = [Cryptex(password: "Cryptex", hint: "What you are currently trying to solve."), Cryptex(password: "cat", hint: "An animal that meows.")]
+    private var cryptextes: [Cryptex] = [Cryptex(password: "CAT", hint: "Animal that Meows."), Cryptex(password: "RYAN", hint:"What is my name?"), Cryptex(password: "CRYPTEX", hint: "What are you trying to solve right now?")]
     
-    var currentCryptext: Cryptex?
+    var currentCryptex: Cryptex?
     
-    func randomCryptex() -> Cryptex {
-        let random = cryptexts.randomElement()!
-        return random
+    func randomCryptex() {
+        let randomCryptex = cryptextes.randomElement()
+        currentCryptex = randomCryptex
     }
+    
+    
+}
+
     
   
     
     
-}
+
 
 
 
