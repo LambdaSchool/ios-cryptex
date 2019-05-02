@@ -107,7 +107,7 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     func reset(){
         countdownTimer?.invalidate()
-        _ = Timer.scheduledTimer(withTimeInterval: 60, repeats: false) { (countdownTimer) in
+        _ = Timer.scheduledTimer(withTimeInterval: 60.00, repeats: false) { (countdownTimer) in
             self.presentNoTimeRemainingAlert()
         }
     }
