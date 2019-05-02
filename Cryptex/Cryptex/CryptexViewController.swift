@@ -171,8 +171,18 @@ extension CryptexViewController {
 		
 		present(ac, animated: true)
 	}
-	func addNewCryptex(password: String?, hint: String?){
-		print("\(password!) - \(hint!)")
+	func addNewCryptex(password: String?, hint: String?) {
+		
+		guard let password = password,
+			let hint = hint,
+			password.count >= 7 else {
+			addCryptexAlert()
+			return
+		}
+		
+		let cryptex = cryptexController.cr
+		
+		print("\(password) - \(hint)")
 	}
 
 }
