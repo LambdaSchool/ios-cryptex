@@ -33,7 +33,7 @@ class CryptexViewController: UIViewController {
 
 	
 	
-	private let SETTIMER: TimeInterval = 4
+	private let SETTIMER: TimeInterval = 30
 	var countdownTimer: Timer?
 	
 	@IBOutlet var hintLabel: UILabel!
@@ -108,7 +108,7 @@ extension CryptexViewController {
 		countdownTimer = Timer.scheduledTimer(withTimeInterval: SETTIMER, repeats: true) { timer in
 			print("Timer.invalidate")
 			timer.invalidate()
-			self.presentCorrectPasswordAlert()
+			self.hasMatchingPassword() ? self.presentCorrectPasswordAlert() : self.presentIncorrectPasswordAlert()
 		}
 	}
 	
@@ -130,12 +130,23 @@ extension CryptexViewController {
 	}
 	
 	func presentIncorrectPasswordAlert() {
-		let ac = UIAlertController(title: "Time ran out!", message: nil, preferredStyle: .alert)
+		let ac = UIAlertController(title: "InValid", message: nil, preferredStyle: .alert)
 		
 		ac.addAction(UIAlertAction(title: "PLAY AGAIN", style: .default){ action in
 			self.newCryptexAndReset()
 		})
 		
+		present(ac, animated: true)
+	}
+	
+	func presentNoTimeRemainingAlert() {
+		let ac = UIAlertController(title: "Time  Ran Out!", message: "You ran out of time to guess the password.", preferredStyle: .alert)
+		ac.addAction(UIAlertAction(title: "Retry cryptex", style: .cancel) { action in
+			self.reset()
+		})
+		ac.addAction(UIAlertAction(title: "New Cryptex", style: .default) { action in
+			self.newCryptexAndReset()
+		})
 		present(ac, animated: true)
 	}
 }
