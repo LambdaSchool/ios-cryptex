@@ -11,9 +11,6 @@ import UIKit
 
 
 class CryptexViewController: UIViewController {
-	
-	
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		pickerView.delegate = self
@@ -34,6 +31,9 @@ class CryptexViewController: UIViewController {
 		print(hasMatchingPassword())
 	}
 
+	
+	
+	private let SETTIMER: TimeInterval = 4
 	var countdownTimer: Timer?
 	
 	@IBOutlet var hintLabel: UILabel!
@@ -104,9 +104,8 @@ extension CryptexViewController {
 	}
 	
 	func reset() {
-		print("reset")
 		countdownTimer = nil
-		countdownTimer = Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { timer in
+		countdownTimer = Timer.scheduledTimer(withTimeInterval: SETTIMER, repeats: true) { timer in
 			print("Timer.invalidate")
 			timer.invalidate()
 			self.presentCorrectPasswordAlert()
@@ -122,11 +121,21 @@ extension CryptexViewController {
 	func presentCorrectPasswordAlert() {
 		guard let cryptex = cryptexController.currentCryptex else { return }
 		
-		let ac = UIAlertController(title: "Ran out of Time", message: "password is: \(cryptex.password)", preferredStyle: .alert)
-		ac.addAction(UIAlertAction(title: "OK", style: .cancel){ action in
+		let ac = UIAlertController(title: "Unlocked!", message: "password: \(cryptex.password)", preferredStyle: .alert)
+		ac.addAction(UIAlertAction(title: "PLAY AGAIN", style: .cancel){ action in
 			self.newCryptexAndReset()
 		})
-		self.present(ac, animated: true)
 		
+		self.present(ac, animated: true)
+	}
+	
+	func presentIncorrectPasswordAlert() {
+		let ac = UIAlertController(title: "Time ran out!", message: nil, preferredStyle: .alert)
+		
+		ac.addAction(UIAlertAction(title: "PLAY AGAIN", style: .default){ action in
+			
+		})
+		
+		present(ac, animated: true)
 	}
 }
