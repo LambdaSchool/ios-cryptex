@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PYt-DA-FHV">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cryptex View Controller-->
+        <scene sceneID="qhQ-mM-19t">
+            <objects>
+                <viewController id="PYt-DA-FHV" customClass="CryptexViewController" customModule="Cryptex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fzg-L5-vBc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iDt-Pz-e7a">
+                                <rect key="frame" x="47" y="307" width="320" height="282.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azQ-Fy-0pS">
+                                        <rect key="frame" x="139" y="0.0" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Msy-Ra-MCy">
+                                        <rect key="frame" x="0.0" y="28.5" width="320" height="216"/>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg8-rX-6tS">
+                                        <rect key="frame" x="136" y="252.5" width="48" height="30"/>
+                                        <state key="normal" title="Unlock"/>
+                                        <connections>
+                                            <action selector="unlockButtonTapped:" destination="PYt-DA-FHV" eventType="touchUpInside" id="osi-Vk-eXq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iDt-Pz-e7a" firstAttribute="centerX" secondItem="fzg-L5-vBc" secondAttribute="centerX" id="D28-Mi-ltM"/>
+                            <constraint firstItem="iDt-Pz-e7a" firstAttribute="centerY" secondItem="fzg-L5-vBc" secondAttribute="centerY" id="E5k-JK-iaQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="11C-9N-4Js"/>
+                    </view>
+                    <connections>
+                        <outlet property="clueLabel" destination="azQ-Fy-0pS" id="rQX-F1-lp7"/>
+                        <outlet property="pickerView" destination="Msy-Ra-MCy" id="EQQ-fA-Hw7"/>
+                        <outlet property="unlockButton" destination="Pg8-rX-6tS" id="yWG-dm-CT7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lYu-td-cuS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131" y="144"/>
+        </scene>
+    </scenes>
+</document>
