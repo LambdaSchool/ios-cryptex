@@ -12,7 +12,7 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     
     var cryptexController = CryptexController()
-    @objc let countdownTimer: Timer?
+    @objc var countdownTimer: Timer?
     var letters = ["A", "B", "C", "D",
                    "E", "F", "G", "H",
                    "I", "J", "K", "L",
@@ -32,7 +32,41 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     //MARK: - Functions
     @IBAction func unlockButtonPressed(_ sender: Any) {
+        if hasMatchingPassword(){
+            presentCorrectPasswordAlert()
+        } else {
+            presentIncorrectPasswordAlert()
+        }
+        
+        
     }
+    func presentCorrectPasswordAlert() {
+        
+        let alert = UIAlertController(title: "Correct!", message: "You have guessed the right password!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Try new cryptex", style: .default, handler: { (alert) in self.newCryptexAndReset()}))
+        present(alert, animated: true, completion: nil)
+
+    }
+
+    func presentIncorrectPasswordAlert(){
+        let alert = UIAlertController(title: "Inorrect!", message: "You have guessed the wrong password!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Continue guessing!", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+
+
+    }
+        
+    func presentNoTimeRemainingAlert() {
+    
+        let alert = UIAlertController(title: "No Time", message: "You have have ran out of time! Would you like to reset the Timer?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Reset timer", style: .default, handler: { (alert) in self.reset()}))
+        alert.addAction(UIAlertAction(title: "Try new cryptex", style: .default, handler: { (alert) in self.newCryptexAndReset()}))
+        present(alert, animated: true, completion: nil)
+
+
+    }
+        
+        
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         // For the number of components, think about how you can figure out how many characters are in the `currentCryptex`'s password.
         guard let cryptex = cryptexController.currentCryptex else { return 0 }
@@ -54,7 +88,7 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         cryptexPickerView.reloadAllComponents()
     }
     func hasMatchingPassword() -> Bool{
-        let numberOfLetters = cryptexPickerView.numberOfComponents
+        let numberOfLetters = cryptexPickerView.numberOfComponents - 1
         
         var passwordEntered: [String] = []
         for letter in 0...numberOfLetters{
@@ -73,9 +107,18 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     func reset(){
         countdownTimer?.invalidate()
-        var newTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(getter: countdownTimer), userInfo: nil, repeats: true)
-        
+        _ = Timer.scheduledTimer(withTimeInterval: 60, repeats: false) { (countdownTimer) in
+            self.presentNoTimeRemainingAlert()
+        }
     }
+    func newCryptexAndReset() {
+        cryptexController.randomCryptex()
+        updateViews()
+        reset()
+    }
+    
+    
+    
    
     
     //Mark: - IBOutlets
