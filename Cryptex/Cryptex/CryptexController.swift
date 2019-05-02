@@ -28,7 +28,9 @@ class CryptexController {
 		if cryptexs.isEmpty {
 			cryptexs.append(Cryptex(password: "cryptex", hint: "The thing you are trying to solve right now"))
 			cryptexs.append(Cryptex(password: "lambda", hint: "The name of your school"))
-			
+			cryptexs.append(Cryptex(password: "endGame", hint: "What Avenger Movie is out Right now"))
+			cryptexs.append(Cryptex(password: "zyxwv", hint: "The last 5 letters"))
+			cryptexs.append(Cryptex(password: "h", hint: "I wonder. .."))
 		}
 		
 		randomCryptex()
@@ -54,7 +56,7 @@ extension CryptexController {
 			let data = try encoder.encode(cryptexs)
 			try data.write(to: url)
 		} catch {
-			NSLog("Error saving book data: \(error)")
+			NSLog("Error saving data: \(error)")
 		}
 	}
 	
