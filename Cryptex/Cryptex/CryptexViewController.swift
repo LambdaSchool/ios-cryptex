@@ -30,6 +30,7 @@ class CryptexViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         letterPickerView.delegate = self
         letterPickerView.dataSource = self
         updateViews()
+        reset()
     }
     
     func updateViews() {
@@ -41,10 +42,13 @@ class CryptexViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBAction func unlockButtonTapped(_ sender: Any) {
         if hasMatchingPassword() {
             presentCorrectPasswordAlert()
+        } else {
+            presentIncorrectPasswordAlert()
         }
     }
     
     // MARK: - Show a Cryptex
+    
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         // For the number of components, think about how you can figure out how many characters are in the `currentCryptex`'s password.
@@ -61,28 +65,23 @@ class CryptexViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         // For the title of each row, we want to show the letter that corresponds to the row. i.e. row 0 should show "A", row 1 should show "B", etc.
         return letters[row]
-        
     }
     
     // MARK: - Game Logic
     
-    @objc func hasMatchingPassword() -> Bool {
-        var lettersInView: [String] = []
+    func hasMatchingPassword() -> Bool {
         var guess = ""
         for i in 0..<letterPickerView.numberOfComponents {
-            lettersInView.append(letters[letterPickerView.selectedRow(inComponent: i)])
-            guess += letters[letterPickerView.selectedRow(inComponent: i)]
+            let letter = letters[letterPickerView.selectedRow(inComponent: i)]
+            guess += letter
         }
         return guess.uppercased() == cryptexController.currentCryptex?.password.uppercased()
-    }
-    
-    @ objc func myPrint() {
-        print("Time!")
     }
 
     func reset() {
         countdownTimer?.invalidate()
-        countdownTimer = Timer.scheduledTimer(timeInterval: 0.07, target: self, selector: #selector(myPrint), userInfo: nil, repeats: true)
+        // Selectors are the only thing that need objc funcitons
+        countdownTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(presentNoTimeRemainingAlert), userInfo: nil, repeats: false)
     }
     
     func newCryptexAndReset() {
@@ -95,20 +94,29 @@ class CryptexViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     func presentCorrectPasswordAlert() {
         let alert = UIAlertController(title: "You got it!", message: "That was the correct password.", preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Play Again", style: .default, handler: nil))
-        
+        alert.addAction(UIAlertAction(title: "Play Again", style: .default, handler: { (_) in
+            self.newCryptexAndReset()
+        }))
         present(alert, animated: true, completion: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func presentIncorrectPasswordAlert() {
+        let alert = UIAlertController(title: "Sorry", message: "That's not quite right.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Keep Trying", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: { (_) in
+            self.newCryptexAndReset()
+        }))
+        present(alert, animated: true)
     }
-    */
-
+    
+    @ objc func presentNoTimeRemainingAlert() {
+        let alert = UIAlertController(title: "Time Ran Out", message: "You'll have to be faster.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Keep Trying", style: .default, handler: { (_) in
+            self.reset()
+        }))
+        alert.addAction(UIAlertAction(title: "Start Over", style: .default, handler: { (_) in
+            self.newCryptexAndReset()
+        }))
+        present(alert, animated: true)
+    }
 }
