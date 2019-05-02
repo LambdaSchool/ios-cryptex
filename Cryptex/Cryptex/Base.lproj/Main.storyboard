@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T3F-D2-0Xg">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cryptex View Controller-->
+        <scene sceneID="ytD-11-iEu">
+            <objects>
+                <viewController id="T3F-D2-0Xg" customClass="CryptexViewController" customModule="Cryptex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NBN-Ra-iyM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="98" translatesAutoresizingMaskIntoConstraints="NO" id="02R-Eb-wgA">
+                                <rect key="frame" x="0.0" y="217" width="414" height="462.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scc-EN-KZv">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tuq-Lq-Ore">
+                                        <rect key="frame" x="0.0" y="118.5" width="414" height="216"/>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1e-Bf-AQ2">
+                                        <rect key="frame" x="0.0" y="432.5" width="414" height="30"/>
+                                        <state key="normal" title="Unlock"/>
+                                        <connections>
+                                            <action selector="unlockButtonTapped:" destination="T3F-D2-0Xg" eventType="touchUpInside" id="bzh-Fn-qcS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="02R-Eb-wgA" firstAttribute="leading" secondItem="4lP-h2-iMc" secondAttribute="leading" id="Mvk-ct-DHm"/>
+                            <constraint firstItem="4lP-h2-iMc" firstAttribute="trailing" secondItem="02R-Eb-wgA" secondAttribute="trailing" id="bNe-0R-zhr"/>
+                            <constraint firstItem="02R-Eb-wgA" firstAttribute="centerY" secondItem="NBN-Ra-iyM" secondAttribute="centerY" id="ovY-sQ-4HV"/>
+                            <constraint firstItem="02R-Eb-wgA" firstAttribute="centerX" secondItem="NBN-Ra-iyM" secondAttribute="centerX" id="vgu-1g-L9l"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4lP-h2-iMc"/>
+                    </view>
+                    <connections>
+                        <outlet property="hintLabel" destination="scc-EN-KZv" id="m78-vI-npp"/>
+                        <outlet property="letterPickerView" destination="tuq-Lq-Ore" id="3fY-2N-LsH"/>
+                        <outlet property="unlockButton" destination="d1e-Bf-AQ2" id="BTO-rc-RFx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kKh-Mb-qZb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-123" y="152"/>
+        </scene>
+    </scenes>
+</document>
