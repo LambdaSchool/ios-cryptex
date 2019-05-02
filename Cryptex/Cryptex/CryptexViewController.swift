@@ -133,7 +133,7 @@ extension CryptexViewController {
 		let ac = UIAlertController(title: "Time ran out!", message: nil, preferredStyle: .alert)
 		
 		ac.addAction(UIAlertAction(title: "PLAY AGAIN", style: .default){ action in
-			
+			self.newCryptexAndReset()
 		})
 		
 		present(ac, animated: true)
