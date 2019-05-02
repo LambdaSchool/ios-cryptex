@@ -19,7 +19,6 @@ class CryptexViewController: UIViewController {
 		reset()
 	}
 	
-	
 	func updateViews(){
 		if let cryptex = cryptexController.currentCryptex {
 			hintLabel?.text = cryptex.hint
@@ -31,7 +30,6 @@ class CryptexViewController: UIViewController {
 		hasMatchingPassword() ? presentCorrectPasswordAlert() : presentIncorrectPasswordAlert()
 	}
 
-	
 	
 	var SETTIMER: TimeInterval = 60
 	var countdownTimer: Timer?

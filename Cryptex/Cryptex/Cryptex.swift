@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct Cryptex {
+struct Cryptex: Codable, Equatable {
 	var password: String
 	var hint: String
+	
+	init(password: String, hint: String){
+		self.password = password
+		self.hint = hint
+	}
 }

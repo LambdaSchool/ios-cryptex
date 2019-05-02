@@ -13,6 +13,7 @@ class CryptexController {
 	
 	func createCryptex(password: String, hint: String) {
 		cryptexs.append(Cryptex(password: password, hint: hint))
+		saveToPersistentStore()
 	}
 	
 	func randomCryptex(){
@@ -39,3 +40,27 @@ class CryptexController {
 	private(set) var cryptexs: [Cryptex] = []
 }
 
+extension CryptexController {
+	private var cryptextListURL: URL? {
+		let fileManager = FileManager.default
+		guard let documents = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+		let fileName = "cryptexts.plist"
+		let document = documents.appendingPathComponent(fileName)
+
+		return document
+	}
+	
+	func saveToPersistentStore() {
+		guard let url = cryptextListURL else { return }
+		do {
+			let encoder = PropertyListEncoder()
+			let data = try encoder.encode(cryptexs)
+			
+			try data.write(to: url)
+		} catch {
+			NSLog("Error saving book data: \(error)")
+		}
+	}
+	
+	
+}
