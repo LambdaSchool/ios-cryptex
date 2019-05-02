@@ -85,9 +85,16 @@ class CryptexViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         countdownTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(presentNoTimeRemainingAlert), userInfo: nil, repeats: false)
     }
     
+    func resetPickerView() {
+        for i in 0..<letterPickerView.numberOfComponents {
+            letterPickerView?.selectRow(0, inComponent: i, animated: true)
+        }
+    }
+    
     func newCryptexAndReset() {
         cryptexController.randomCryptex()
         updateViews()
+        resetPickerView()
         reset()
     }
     
