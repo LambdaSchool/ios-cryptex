@@ -14,6 +14,7 @@
 		E8EE74A1227A33210090EBE9 /* CryptexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE74A0227A33210090EBE9 /* CryptexViewController.swift */; };
 		E8EE74A3227A35E70090EBE9 /* Cryptex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE74A2227A35E70090EBE9 /* Cryptex.swift */; };
 		E8EE74A5227A36310090EBE9 /* CryptexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE74A4227A36310090EBE9 /* CryptexController.swift */; };
+		E8EE74A8227A98E70090EBE9 /* CryptextViewController+exntendAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE74A7227A98E70090EBE9 /* CryptextViewController+exntendAlerts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		E8EE74A2227A35E70090EBE9 /* Cryptex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptex.swift; sourceTree = "<group>"; };
 		E8EE74A4227A36310090EBE9 /* CryptexController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptexController.swift; sourceTree = "<group>"; };
 		E8EE74A6227A5F980090EBE9 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		E8EE74A7227A98E70090EBE9 /* CryptextViewController+exntendAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CryptextViewController+exntendAlerts.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				E8EE74A2227A35E70090EBE9 /* Cryptex.swift */,
 				E8EE74A4227A36310090EBE9 /* CryptexController.swift */,
 				E8EE74A0227A33210090EBE9 /* CryptexViewController.swift */,
+				E8EE74A7227A98E70090EBE9 /* CryptextViewController+exntendAlerts.swift */,
 				E8EE7490227A2C840090EBE9 /* Main.storyboard */,
 				E8EE7495227A2C860090EBE9 /* LaunchScreen.storyboard */,
 				E8EE7493227A2C860090EBE9 /* Assets.xcassets */,
@@ -147,6 +150,7 @@
 				E8EE74A5227A36310090EBE9 /* CryptexController.swift in Sources */,
 				E8EE74A3227A35E70090EBE9 /* Cryptex.swift in Sources */,
 				E8EE748D227A2C840090EBE9 /* AppDelegate.swift in Sources */,
+				E8EE74A8227A98E70090EBE9 /* CryptextViewController+exntendAlerts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

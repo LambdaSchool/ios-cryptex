@@ -80,7 +80,20 @@ extension CryptexViewController {
 		newCryptexAndReset()
 	}
 	
-	@objc func setTimer() {
-		print("set Timer")
+	@objc func setTimerAlert() {
+		let ac = UIAlertController(title: "Set Timer", message: "(from 10 - 300)timer in seconds:", preferredStyle: .alert)
+		
+		ac.addTextField()
+		
+		ac.addAction(UIAlertAction(title: "Set", style: .default){
+			action in
+			//send to function
+			let seconds = ac.textFields?[0].text
+			self.setTimerFromAlert(seconds: seconds)
+		})
+		
+		ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+		
+		present(ac, animated: true)
 	}
 }
