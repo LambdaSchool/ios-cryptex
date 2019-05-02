@@ -19,19 +19,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="84" translatesAutoresizingMaskIntoConstraints="NO" id="ywA-ck-aVO">
-                                <rect key="frame" x="47" y="231" width="320" height="434.5"/>
+                                <rect key="frame" x="16" y="231" width="382" height="434.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sbc-TZ-oUx">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sbc-TZ-oUx">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UjS-lC-sED">
-                                        <rect key="frame" x="0.0" y="104.5" width="320" height="216"/>
+                                        <rect key="frame" x="0.0" y="104.5" width="382" height="216"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qgs-wv-JOc">
-                                        <rect key="frame" x="0.0" y="404.5" width="320" height="30"/>
+                                        <rect key="frame" x="0.0" y="404.5" width="382" height="30"/>
                                         <state key="normal" title="Unlock"/>
                                         <connections>
                                             <action selector="unlockButton:" destination="RdY-5B-uen" eventType="touchUpInside" id="2yd-NP-6Qs"/>
@@ -42,8 +42,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Nc1-W5-PW5" firstAttribute="trailing" secondItem="ywA-ck-aVO" secondAttribute="trailing" constant="16" id="832-fI-I16"/>
                             <constraint firstItem="ywA-ck-aVO" firstAttribute="centerY" secondItem="PKC-LK-65t" secondAttribute="centerY" id="Jqb-jw-KZP"/>
                             <constraint firstItem="ywA-ck-aVO" firstAttribute="centerX" secondItem="PKC-LK-65t" secondAttribute="centerX" id="MLi-pf-Ra4"/>
+                            <constraint firstItem="ywA-ck-aVO" firstAttribute="leading" secondItem="Nc1-W5-PW5" secondAttribute="leading" constant="16" id="g1u-Um-ZmO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Nc1-W5-PW5"/>
                     </view>

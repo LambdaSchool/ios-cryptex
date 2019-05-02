@@ -13,7 +13,8 @@ class CryptexController {
     init() {
         randomCryptex()
     }
-    private(set) var cryptexes = [Cryptex(password: "HAM", hint: "This goes on inside a sandwhich."), Cryptex(password: "Nevada", hint: "This is one of six states in america that doesn't have state income tax."), Cryptex(password: "Heather", hint: "Your favorite person to beat in mario kart.")]
+    
+    private(set) var cryptexes = [Cryptex(password: "HAM", hint: "This goes inside a sandwich."), Cryptex(password: "Nevada", hint: "This is one of six states in america that doesn't have state income tax."), Cryptex(password: "Heather", hint: "Your favorite person to beat in mario kart.")]
     
     var currentCryptex: Cryptex? //this s the property that the view controller will be able to see (as it is not private), and use for settingup the picker view and running some logic.
     
