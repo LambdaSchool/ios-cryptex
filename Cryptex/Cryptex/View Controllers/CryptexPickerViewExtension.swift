@@ -27,4 +27,11 @@ extension CryptexViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         
         return letters[row]
     }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        let letter = letters[row]
+        
+        selectedLetters[component] = letter
+    }
 }

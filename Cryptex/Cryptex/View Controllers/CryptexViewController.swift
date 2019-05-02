@@ -26,6 +26,8 @@ class CryptexViewController: UIViewController {
                    "U", "V", "W", "X",
                    "Y", "Z"]
     
+    var selectedLetters: [String] = []
+    
     var countdownTimer: Timer?
     
     // MARK: - View Loading Functions
@@ -37,6 +39,7 @@ class CryptexViewController: UIViewController {
         pickerView.dataSource = self
         
         updateViews()
+        selectedLetters = Array(repeating: "A", count: numberOfComponents(in: pickerView))
         reset()
     }
     
@@ -52,7 +55,7 @@ class CryptexViewController: UIViewController {
     
     @IBAction func unlockButtonTapped(_ sender: Any) {
         
-        if hasMatchingPassword(guess: <#T##String#>) {
+        if hasMatchingPassword() {
             presentCorrectPasswordAlert()
         } else {
             presentIncorrectPasswordAlert()
@@ -68,16 +71,23 @@ class CryptexViewController: UIViewController {
         countdownTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: false, block: { (countdownTimer) in
             self.presentNoTimeRemainingAlert()
         })
+        
+        for component in 0..<pickerView.numberOfComponents {
+            pickerView.selectRow(0, inComponent: component, animated: true)
+        }
     }
     
     func newCryptexAndReset() {
         
         cryptexController.randomCryptex()
         updateViews()
+        selectedLetters = Array(repeating: "A", count: numberOfComponents(in: pickerView))
         reset()
     }
     
-    func hasMatchingPassword(guess: String) -> Bool {
+    func hasMatchingPassword() -> Bool {
+        
+        let guess = selectedLetters.joined()
         
         guard let currentCryptex = cryptexController.currentCryptex else { return false }
         
