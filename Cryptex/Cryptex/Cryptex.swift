@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Cryptex {
+struct Cryptex: Hashable {
     let password: String
     let hint: String
 }

@@ -11,6 +11,7 @@ import Foundation
 class CryptexController {
     private var cryptexes: [Cryptex] = []
     var currentCryptex: Cryptex?
+    var previousCryptex: Cryptex?
     
     init() {
         
@@ -22,9 +23,10 @@ class CryptexController {
     }
     
     func randomCryptex() {
-        currentCryptex = cryptexes.randomElement()
+        
+        repeat {
+            currentCryptex = cryptexes.randomElement()
+        } while previousCryptex == currentCryptex
+        previousCryptex = currentCryptex
     }
-    
-    
-    
 }
