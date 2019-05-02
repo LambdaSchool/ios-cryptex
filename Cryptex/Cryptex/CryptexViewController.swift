@@ -72,6 +72,7 @@ class CryptexViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     func hasMatchingPassword() -> Bool {
         var guess = ""
         for i in 0..<letterPickerView.numberOfComponents {
+            // Gets the letter at the same index that the component is at.
             let letter = letters[letterPickerView.selectedRow(inComponent: i)]
             guess += letter
         }
@@ -94,7 +95,7 @@ class CryptexViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     func presentCorrectPasswordAlert() {
         let alert = UIAlertController(title: "You got it!", message: "That was the correct password.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Play Again", style: .default, handler: { (_) in
+        alert.addAction(UIAlertAction(title: "New Cryptex", style: .default, handler: { (_) in
             self.newCryptexAndReset()
         }))
         present(alert, animated: true, completion: nil)
@@ -103,7 +104,7 @@ class CryptexViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     func presentIncorrectPasswordAlert() {
         let alert = UIAlertController(title: "Sorry", message: "That's not quite right.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Keep Trying", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: { (_) in
+        alert.addAction(UIAlertAction(title: "New Cryptex", style: .default, handler: { (_) in
             self.newCryptexAndReset()
         }))
         present(alert, animated: true)
@@ -114,7 +115,7 @@ class CryptexViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         alert.addAction(UIAlertAction(title: "Keep Trying", style: .default, handler: { (_) in
             self.reset()
         }))
-        alert.addAction(UIAlertAction(title: "Start Over", style: .default, handler: { (_) in
+        alert.addAction(UIAlertAction(title: "New Cryptex", style: .default, handler: { (_) in
             self.newCryptexAndReset()
         }))
         present(alert, animated: true)

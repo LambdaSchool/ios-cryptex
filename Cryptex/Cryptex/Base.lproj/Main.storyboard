@@ -32,7 +32,7 @@
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1e-Bf-AQ2">
                                         <rect key="frame" x="0.0" y="432.5" width="414" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Unlock"/>
                                         <connections>
                                             <action selector="unlockButtonTapped:" destination="T3F-D2-0Xg" eventType="touchUpInside" id="bzh-Fn-qcS"/>
                                         </connections>

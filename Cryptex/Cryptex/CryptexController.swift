@@ -15,9 +15,9 @@ class CryptexController {
     
     init() {
         
-        cryptexes.append(Cryptex(password: "TIMER", hint: "A  device that counts down"))
+        cryptexes.append(Cryptex(password: "TIMER", hint: "Ao device that counts down"))
         cryptexes.append(Cryptex(password: "FOO", hint: "A common placeholder"))
-        cryptexes.append(Cryptex(password: "CRYPTEX", hint: "The game you're playing now"))
+//        cryptexes.append(Cryptex(password: "CRYPTEX", hint: "The game you're playing now"))
         
         randomCryptex()
     }
