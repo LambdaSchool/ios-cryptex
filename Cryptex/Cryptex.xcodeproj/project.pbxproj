@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF2E0328227A6AB10001D190 /* CryptexPickerViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E0327227A6AB10001D190 /* CryptexPickerViewExtension.swift */; };
+		FF2E032A227A6ACC0001D190 /* CryptexAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E0329227A6ACC0001D190 /* CryptexAlertControllerExtension.swift */; };
 		FF9099DF227A25F200F94AD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9099DE227A25F200F94AD8 /* AppDelegate.swift */; };
 		FF9099E4227A25F200F94AD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF9099E2227A25F200F94AD8 /* Main.storyboard */; };
 		FF9099E6227A25F300F94AD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF9099E5227A25F300F94AD8 /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF2E0327227A6AB10001D190 /* CryptexPickerViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptexPickerViewExtension.swift; sourceTree = "<group>"; };
+		FF2E0329227A6ACC0001D190 /* CryptexAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptexAlertControllerExtension.swift; sourceTree = "<group>"; };
 		FF9099DB227A25F200F94AD8 /* Cryptex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF9099DE227A25F200F94AD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF9099E3227A25F200F94AD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				FF9099F3227A553700F94AD8 /* CryptexViewController.swift */,
+				FF2E0327227A6AB10001D190 /* CryptexPickerViewExtension.swift */,
+				FF2E0329227A6ACC0001D190 /* CryptexAlertControllerExtension.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -183,8 +189,10 @@
 			files = (
 				FF9099F4227A553700F94AD8 /* CryptexViewController.swift in Sources */,
 				FF9099FA227A55CA00F94AD8 /* CryptexController.swift in Sources */,
+				FF2E032A227A6ACC0001D190 /* CryptexAlertControllerExtension.swift in Sources */,
 				FF9099F8227A55BC00F94AD8 /* Cryptex.swift in Sources */,
 				FF9099DF227A25F200F94AD8 /* AppDelegate.swift in Sources */,
+				FF2E0328227A6AB10001D190 /* CryptexPickerViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
