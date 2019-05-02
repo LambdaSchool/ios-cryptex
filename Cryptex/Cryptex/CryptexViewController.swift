@@ -28,7 +28,7 @@ class CryptexViewController: UIViewController {
 	
 	@IBAction func unlockButtonPressed(_ sender: Any) {
 		print("unlock")
-		print(hasMatchingPassword())
+		hasMatchingPassword() ? presentCorrectPasswordAlert() : presentIncorrectPasswordAlert()
 	}
 
 	
@@ -106,9 +106,8 @@ extension CryptexViewController {
 	func reset() {
 		countdownTimer = nil
 		countdownTimer = Timer.scheduledTimer(withTimeInterval: SETTIMER, repeats: true) { timer in
-			print("Timer.invalidate")
 			timer.invalidate()
-			self.hasMatchingPassword() ? self.presentCorrectPasswordAlert() : self.presentIncorrectPasswordAlert()
+			self.hasMatchingPassword() ? self.presentCorrectPasswordAlert() : self.presentNoTimeRemainingAlert()
 		}
 	}
 	
