@@ -27,7 +27,6 @@ class CryptexViewController: UIViewController {
 	}
 	
 	@IBAction func unlockButtonPressed(_ sender: Any) {
-		print("unlock")
 		hasMatchingPassword() ? presentCorrectPasswordAlert() : presentIncorrectPasswordAlert()
 	}
 
@@ -74,7 +73,6 @@ extension CryptexViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 		
 		return nil
 	}
-	
 }
 
 
@@ -120,7 +118,7 @@ extension CryptexViewController {
 	func presentCorrectPasswordAlert() {
 		guard let cryptex = cryptexController.currentCryptex else { return }
 		
-		let ac = UIAlertController(title: "Unlocked!", message: "password: \(cryptex.password)", preferredStyle: .alert)
+		let ac = UIAlertController(title: "UNLOCKED", message: "password: \(cryptex.password)", preferredStyle: .alert)
 		ac.addAction(UIAlertAction(title: "PLAY AGAIN", style: .cancel){ action in
 			self.newCryptexAndReset()
 		})
@@ -129,7 +127,7 @@ extension CryptexViewController {
 	}
 	
 	func presentIncorrectPasswordAlert() {
-		let ac = UIAlertController(title: "InValid", message: nil, preferredStyle: .alert)
+		let ac = UIAlertController(title: "INVALID", message: nil, preferredStyle: .alert)
 		
 		ac.addAction(UIAlertAction(title: "PLAY AGAIN", style: .default){ action in
 			self.newCryptexAndReset()
@@ -140,12 +138,14 @@ extension CryptexViewController {
 	
 	func presentNoTimeRemainingAlert() {
 		let ac = UIAlertController(title: "Time  Ran Out!", message: "You ran out of time to guess the password.", preferredStyle: .alert)
+		
 		ac.addAction(UIAlertAction(title: "Retry cryptex", style: .cancel) { action in
 			self.reset()
 		})
 		ac.addAction(UIAlertAction(title: "New Cryptex", style: .default) { action in
 			self.newCryptexAndReset()
 		})
+		
 		present(ac, animated: true)
 	}
 }
