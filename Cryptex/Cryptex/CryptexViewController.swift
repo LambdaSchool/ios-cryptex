@@ -8,17 +8,18 @@
 
 import UIKit
 
-
-
 class CryptexViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCryptexAlert))
+		
 		pickerView.delegate = self
 		pickerView.dataSource = self
 		updateViews()
 		reset()
 	}
-
+	
+	
 	func updateViews(){
 		if let cryptex = cryptexController.currentCryptex {
 			hintLabel?.text = cryptex.hint
@@ -75,8 +76,8 @@ extension CryptexViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 	}
 }
 
-
 extension CryptexViewController {
+	
 	func hasMatchingPassword() -> Bool {
 		let checkString = constructStringFromComponents()
 	
@@ -114,6 +115,9 @@ extension CryptexViewController {
 		updateViews()
 		reset()
 	}
+}
+
+extension CryptexViewController {
 	
 	func presentCorrectPasswordAlert() {
 		guard let cryptex = cryptexController.currentCryptex else { return }
@@ -142,10 +146,33 @@ extension CryptexViewController {
 		ac.addAction(UIAlertAction(title: "Retry cryptex", style: .cancel) { action in
 			self.reset()
 		})
+		
 		ac.addAction(UIAlertAction(title: "New Cryptex", style: .default) { action in
 			self.newCryptexAndReset()
 		})
 		
 		present(ac, animated: true)
 	}
+	
+	@objc func addCryptexAlert() {
+		
+		let ac = UIAlertController(title: "Create Cryptex", message: "Add password and a hint", preferredStyle: .alert)
+		
+		ac.addTextField()
+		ac.addTextField()
+		ac.addAction(UIAlertAction(title: "ADD", style: .default){ action in
+			//create action
+			let password = ac.textFields?[0].text
+			let hint = ac.textFields?[1].text
+			self.addNewCryptex(password: password!, hint: hint!)
+		})
+		
+		ac.addAction(UIAlertAction(title: "Canel", style: .cancel))
+		
+		present(ac, animated: true)
+	}
+	func addNewCryptex(password: String?, hint: String?){
+		print("\(password!) - \(hint!)")
+	}
+
 }
