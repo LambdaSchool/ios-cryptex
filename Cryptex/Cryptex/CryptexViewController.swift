@@ -82,7 +82,7 @@ extension CryptexViewController {
 		let checkString = constructStringFromComponents()
 	
 		if let cryptex = cryptexController.currentCryptex {
-			if checkString.lowercased() == cryptex.password {
+			if checkString.lowercased() == cryptex.password.lowercased() {
 				return true
 			}
 		}
@@ -175,12 +175,12 @@ extension CryptexViewController {
 		
 		guard let password = password,
 			let hint = hint,
-			password.count >= 7 else {
+			password.count <= 7 else {
 			addCryptexAlert()
 			return
 		}
 		
-		let cryptex = cryptexController.cr
+		cryptexController.createCryptex(password: password, hint: hint)
 		
 		print("\(password) - \(hint)")
 	}
