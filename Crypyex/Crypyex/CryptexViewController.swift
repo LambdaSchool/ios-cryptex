@@ -49,9 +49,9 @@ class CryptexViewController: UIViewController {
     }
     
     func reset() {
-        guard let timer = countdownTimer else { return }
+//        guard let timer = countdownTimer else { return }
         Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { timer in
-            print("Timer has finished")
+            self.presentNoTimeRemainingAlert()
         }
     }
     
@@ -61,10 +61,38 @@ class CryptexViewController: UIViewController {
         reset()
     }
     
+    // MARK: Alert Controllers
+    
+    func presentCorrectPasswordAlert() {
+        let alert = UIAlertController(title: "Congragulations!", message: "You have correctly guessed the password", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "New Cryptex", style: .default, handler: {(action) in self.newCryptexAndRest() }))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func presentIncorrectPasswordAlert() {
+        let alert = UIAlertController(title: "Sorry!", message: "You have guessed the password incorrectly.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Try Again", style: .default))
+        alert.addAction(UIAlertAction(title: "New Cryptex", style: .default, handler: {(action) in self.newCryptexAndRest() }))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: Time Remaining
+    
+    func presentNoTimeRemainingAlert() {
+        let alert = UIAlertController(title: "No More Time", message: "Would you like to rest timer and contiue or try and new cryptex?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Reset Timer", style: .default, handler: {(action) in self.reset() }))
+        alert.addAction(UIAlertAction(title: "New", style: .default, handler: {(action) in self.newCryptexAndRest() }))
+        present(alert, animated: true, completion: nil)
+    }
+    
     // MARK: Properties
     
     @IBAction func unlockButtonPressed(_ sender: Any) {
-        
+        if hasMatchingPassword() == true {
+            presentCorrectPasswordAlert()
+        } else {
+            presentIncorrectPasswordAlert()
+        }
     }
     
     @IBOutlet weak var hintLabel: UILabel!
@@ -86,7 +114,7 @@ extension CryptexViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         // For the number of rows, we want to show as many rows as there are letters.
         
-        return letters[component].count
+        return letters.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
