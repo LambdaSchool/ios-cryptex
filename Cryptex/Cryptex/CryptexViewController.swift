@@ -47,6 +47,22 @@ class CryptexViewController: UIViewController {
 //
 //
 //    }
+    
+    func presentCorrectPasswordAlert() {
+        let alert = UIAlertController(title: "Hooray!", message: "You guessed the password!", preferredStyle: .alert)
+        //Directions say to change handler to newCryptexAndReset but keeps getting error
+        alert.addAction(UIAlertAction(title: "Play Again", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func presentIncorrectPasswordAlert() {
+        let alert = UIAlertController(title: "Oops!", message: "Sorry that is not the correct password.", preferredStyle: .alert)
+        //use reset() in handler??
+        alert.addAction(UIAlertAction(title: "Reset Timer", style: .default, handler: nil))
+        //use newCryptexAndReset in handler??
+        alert.addAction(UIAlertAction(title: "Try another", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
 
 
 
