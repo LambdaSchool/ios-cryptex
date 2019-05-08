@@ -28,11 +28,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F8G-Wf-A79">
-                                        <rect key="frame" x="0.0" y="40" width="382" height="216"/>
+                                        <rect key="frame" x="0.0" y="40.5" width="382" height="216"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="we9-wo-47C">
                                         <rect key="frame" x="0.0" y="276.5" width="382" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Unlock"/>
                                         <connections>
                                             <action selector="unlockButtonTapped:" destination="Top-XT-Syi" eventType="touchUpInside" id="a1b-SX-BHV"/>
                                         </connections>
