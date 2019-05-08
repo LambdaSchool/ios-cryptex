@@ -38,35 +38,49 @@ class CryptexViewController: UIViewController {
         reset()
     }
     
-//    func hasMatchingPassword() -> Bool {
-//        var letterArray: [Character] = []
-//        //loop through picker view letters and add them to letterArray
-//        //turn the array of letters into a string
-//        //compare current cryptex password to that string using uppercased
-//        //return a bool
-//
-//
-//    }
+    func hasMatchingPassword() -> Bool {
+        guard let currentPassword = cryptexController.currentCryptex else { return false }
+        
+        var letterArray: [String] = []
+        //loop through picker view letters and add them to letterArray
+        for i in 0..<currentPassword.password.count {
+            let row = pickerView.selectedRow(inComponent: i)
+            guard let title = pickerView(pickerView, titleForRow: row, forComponent: i) else { continue }
+            letterArray.append(title)
+        }
+        //turn the array of letter into a string
+        let string = letterArray.joined().uppercased()
+        //compare current cryptex password to that string using uppercased
+        //return a bool
+        return string == currentPassword.password.uppercased()
+
+    }
     
     func presentCorrectPasswordAlert() {
         let alert = UIAlertController(title: "Hooray!", message: "You guessed the password!", preferredStyle: .alert)
         //Directions say to change handler to newCryptexAndReset but keeps getting error
-        alert.addAction(UIAlertAction(title: "Play Again", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Play Again", style: .default) { (_) in self.newCryptexAndReset()
+        })
         present(alert, animated: true, completion: nil)
     }
     
     func presentIncorrectPasswordAlert() {
         let alert = UIAlertController(title: "Oops!", message: "Sorry that is not the correct password.", preferredStyle: .alert)
         //use reset() in handler??
-        alert.addAction(UIAlertAction(title: "Reset Timer", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Reset Timer", style: .default) { (_) in
+            self.reset()
+        })
         //use newCryptexAndReset in handler??
-        alert.addAction(UIAlertAction(title: "Try another", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Try another", style: .default) { (_) in
+            self.newCryptexAndReset()
+        })
         present(alert, animated: true, completion: nil)
     }
 
 
 
     @IBAction func unlockButtonTapped(_ sender: Any) {
+        //use has matching password method to check equality. if true present correct alert. if false present incorrect alert.
     }
     
     
