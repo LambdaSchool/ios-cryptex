@@ -9,7 +9,7 @@
 import UIKit
 
 class CryptexViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,7 +25,44 @@ class CryptexViewController: UIViewController {
         
         pickerView.reloadAllComponents()
     }
-
+    
+    // MARK: Game Logic
+    
+    func hasMatchingPassword() -> Bool {
+        guard let currentCryptex = cryptexController.currentCryptex else { return false }
+        var characters: [String] = []
+        
+        for i in 0..<currentCryptex.password.count {
+            let row = pickerView.selectedRow(inComponent: i)
+            
+            guard let title = pickerView(pickerView, titleForRow: row, forComponent: i) else { continue }
+            characters.append(title)
+        }
+        
+        let answer = characters.joined()
+        
+        if answer == currentCryptex.password {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func reset() {
+        guard let timer = countdownTimer else { return }
+        Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { timer in
+            print("Timer has finished")
+        }
+    }
+    
+    func newCryptexAndRest() {
+        cryptexController.randomCryptex()
+        updateViews()
+        reset()
+    }
+    
+    // MARK: Properties
+    
     @IBAction func unlockButtonPressed(_ sender: Any) {
         
     }
@@ -36,6 +73,7 @@ class CryptexViewController: UIViewController {
     
     var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     
+    var countdownTimer: Timer?
     var cryptexController = CryptexController()
 }
 
