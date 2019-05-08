@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fhp-c6-hKV">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,45 +11,52 @@
     </dependencies>
     <scenes>
         <!--Cryptex View Controller-->
-        <scene sceneID="q1c-Uw-N5T">
+        <scene sceneID="2b9-gh-bfG">
             <objects>
-                <viewController id="ySX-XJ-pd1" customClass="CryptexViewController" customModule="Cryptex" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="KJK-BD-jeJ">
+                <viewController id="fhp-c6-hKV" customClass="CryptexViewController" customModule="Cryptex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ea7-hj-bRi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kto-wa-nPD">
-                                <rect key="frame" x="186" y="338" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="81b-02-p2h">
-                                <rect key="frame" x="0.0" y="367" width="414" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrP-4e-HiE">
-                                <rect key="frame" x="184" y="537" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="cryptexButtonPressed:" destination="ySX-XJ-pd1" eventType="touchUpInside" id="yVA-ci-vC2"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="X3f-Fx-d8a">
+                                <rect key="frame" x="47" y="307" width="320" height="282"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Hint" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIN-Bg-5WP">
+                                        <rect key="frame" x="144.5" y="0.0" width="31.5" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q5m-gd-2yb">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="216"/>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRN-lD-O6d">
+                                        <rect key="frame" x="136" y="252" width="48" height="30"/>
+                                        <state key="normal" title="Unlock"/>
+                                        <connections>
+                                            <action selector="unlockButtonPressed:" destination="fhp-c6-hKV" eventType="touchUpInside" id="sNq-Di-0ei"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="7aa-2B-dLu"/>
+                        <constraints>
+                            <constraint firstItem="X3f-Fx-d8a" firstAttribute="centerY" secondItem="ea7-hj-bRi" secondAttribute="centerY" id="7dj-yy-S7d"/>
+                            <constraint firstItem="X3f-Fx-d8a" firstAttribute="centerX" secondItem="ea7-hj-bRi" secondAttribute="centerX" id="I2L-mm-Exh"/>
+                            <constraint firstItem="X3f-Fx-d8a" firstAttribute="top" secondItem="xqZ-OZ-yA1" secondAttribute="top" constant="263" id="u7C-gB-p6W"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xqZ-OZ-yA1"/>
                     </view>
                     <connections>
-                        <outlet property="cryptexButton" destination="LrP-4e-HiE" id="FJE-HQ-7VG"/>
-                        <outlet property="cryptexPickerView" destination="81b-02-p2h" id="CQA-cN-eap"/>
-                        <outlet property="hintLabel" destination="Kto-wa-nPD" id="kxL-ka-omd"/>
+                        <outlet property="cryptexPickerView" destination="Q5m-gd-2yb" id="4pT-7U-GX6"/>
+                        <outlet property="hintLabel" destination="dIN-Bg-5WP" id="RHh-A1-uN0"/>
+                        <outlet property="unlockButton" destination="wRN-lD-O6d" id="AAM-Lm-t8W"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9zB-bk-B2U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="egN-d6-kQA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-41" y="152"/>
+            <point key="canvasLocation" x="-125" y="117"/>
         </scene>
     </scenes>
 </document>

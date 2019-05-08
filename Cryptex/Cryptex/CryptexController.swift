@@ -15,15 +15,11 @@ class CryptexController {
         randomCryptex()
     }
     
-    private var cryptexes: [Cryptex] = [Cryptex(password: "CRYPTEX", hint: "What is a cryptex?"), Cryptex(password: "password", hint: "not my password"), Cryptex(password: "PORTLAND", hint: "RIP Cty")]
+    private var cryptexes: [Cryptex] = [Cryptex(password: "CRYPTEX", hint: "What is a cryptex?"), Cryptex(password: "PASSWORD", hint: "a likely password"), Cryptex(password: "LASVEGAS", hint: "Sin city")]
     
     var currentCryptex: Cryptex?
     
     func randomCryptex() {
         currentCryptex = cryptexes.randomElement()
-        // returns a random element of the collection
     }
-    
-    
-    
 }
