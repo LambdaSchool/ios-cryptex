@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3qQ-Gl-gfZ">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cryptex View Controller-->
+        <scene sceneID="wsE-Pa-5Y5">
+            <objects>
+                <viewController id="9ol-fn-2pa" customClass="CryptexViewController" customModule="Cryptex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KeM-vV-28S">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Hzh-gm-8NS">
+                                <rect key="frame" x="47" y="368" width="320" height="267"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mo2-QD-RYx">
+                                        <rect key="frame" x="136" y="0.0" width="48" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="2hn-XI-qP0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DxS-Wu-2tt">
+                                        <rect key="frame" x="0.0" y="21" width="320" height="216"/>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJT-77-baZ">
+                                        <rect key="frame" x="0.0" y="237" width="320" height="30"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                        <state key="normal" title="Unlock">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="unlockButtonPressed:" destination="9ol-fn-2pa" eventType="touchUpInside" id="pcl-o9-a7X"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="RJT-77-baZ" firstAttribute="width" secondItem="DxS-Wu-2tt" secondAttribute="width" id="L7m-1L-V7n"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="cNp-8a-jAD"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="SGh-5m-jnh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9af-Js-74a">
+                            <connections>
+                                <segue destination="pfr-M8-K5Z" kind="presentation" id="D6L-4l-T6S"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cryptexPickerView" destination="DxS-Wu-2tt" id="Mak-LL-aTG"/>
+                        <outlet property="hintLabel" destination="mo2-QD-RYx" id="reQ-Um-wGa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CMb-NQ-Sf3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="563.768115942029" y="-19.419642857142858"/>
+        </scene>
+        <!--Add Cryptex View Controller-->
+        <scene sceneID="P0l-X4-wka">
+            <objects>
+                <viewController id="pfr-M8-K5Z" customClass="AddCryptexViewController" customModule="Cryptex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tCZ-lm-YRw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Dgx-hK-hYh">
+                                <rect key="frame" x="16" y="283" width="382" height="68"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="7RJ-Fr-g3X">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FrN-Lt-2Kb">
+                                                <rect key="frame" x="0.0" y="0.0" width="78.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="isa-pk-m9A">
+                                                <rect key="frame" x="114.5" y="0.0" width="267.5" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="mvd-bb-rIa">
+                                        <rect key="frame" x="0.0" y="38" width="382" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hint:         " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJr-c7-dO6">
+                                                <rect key="frame" x="0.0" y="0.0" width="78.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B3N-CA-ejY">
+                                                <rect key="frame" x="114.5" y="0.0" width="267.5" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="isa-pk-m9A" firstAttribute="width" secondItem="B3N-CA-ejY" secondAttribute="width" id="BaQ-zU-bhZ"/>
+                                    <constraint firstItem="mvd-bb-rIa" firstAttribute="top" secondItem="7RJ-Fr-g3X" secondAttribute="bottom" constant="8" id="xju-AP-gQy"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a custom cryptex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysv-bh-Sdc">
+                                <rect key="frame" x="87" y="157" width="241" height="25.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51z-Kc-4qO">
+                                <rect key="frame" x="150" y="359" width="115" height="36"/>
+                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="Add Cryptex">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addCryptexButtonPressed:" destination="pfr-M8-K5Z" eventType="touchUpInside" id="oAH-i2-aN4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="51z-Kc-4qO" firstAttribute="top" secondItem="Dgx-hK-hYh" secondAttribute="bottom" constant="8" id="3Zj-bJ-P79"/>
+                            <constraint firstItem="1AA-uP-Bbt" firstAttribute="trailing" secondItem="51z-Kc-4qO" secondAttribute="trailing" constant="149" id="L62-dL-u3V"/>
+                            <constraint firstItem="1AA-uP-Bbt" firstAttribute="trailing" secondItem="Dgx-hK-hYh" secondAttribute="trailing" constant="16" id="Q9U-XB-fGU"/>
+                            <constraint firstItem="ysv-bh-Sdc" firstAttribute="top" secondItem="1AA-uP-Bbt" secondAttribute="top" constant="113" id="cJo-tt-rZw"/>
+                            <constraint firstItem="1AA-uP-Bbt" firstAttribute="trailing" secondItem="ysv-bh-Sdc" secondAttribute="trailing" constant="86" id="crA-cZ-9WB"/>
+                            <constraint firstItem="Dgx-hK-hYh" firstAttribute="leading" secondItem="1AA-uP-Bbt" secondAttribute="leading" constant="16" id="jUO-8d-tdP"/>
+                            <constraint firstItem="Dgx-hK-hYh" firstAttribute="top" secondItem="ysv-bh-Sdc" secondAttribute="bottom" constant="100.5" id="tsR-yh-Idt"/>
+                            <constraint firstItem="51z-Kc-4qO" firstAttribute="leading" secondItem="1AA-uP-Bbt" secondAttribute="leading" constant="150" id="vwc-pA-s9c"/>
+                            <constraint firstItem="ysv-bh-Sdc" firstAttribute="leading" secondItem="1AA-uP-Bbt" secondAttribute="leading" constant="87" id="wOk-ST-4LC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1AA-uP-Bbt"/>
+                    </view>
+                    <connections>
+                        <outlet property="hintTextField" destination="B3N-CA-ejY" id="CLY-JB-I4h"/>
+                        <outlet property="passwordTextField" destination="isa-pk-m9A" id="KMa-My-XpZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xoy-kQ-xf8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1478.2608695652175" y="-19.419642857142858"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wyS-eg-DG3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3qQ-Gl-gfZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aPp-fb-BHH">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9ol-fn-2pa" kind="relationship" relationship="rootViewController" id="pnb-as-60i"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J3v-h7-Bvv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-346.37681159420293" y="-19.419642857142858"/>
+        </scene>
+    </scenes>
+</document>
