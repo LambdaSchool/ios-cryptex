@@ -28,8 +28,11 @@ class CryptexViewController: UIViewController {
     func reset() {
         //invalidate old timer.
         
+        
+        
+        
         //create new timer
-        countdownTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { timer in print("timer")}
+        countdownTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { timer in self.presentNoTimeRemainingalert() }
     }
     
     func newCryptexAndReset() {
@@ -76,11 +79,28 @@ class CryptexViewController: UIViewController {
         })
         present(alert, animated: true, completion: nil)
     }
+    
+    func presentNoTimeRemainingalert() {
+        let alert = UIAlertController(title: "Time's Up!", message: "Sorry, you ran out of time", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Reset Timer", style: .default, handler: { (_) in
+            self.reset()
+        }))
+        alert.addAction(UIAlertAction(title: "New Cryptex", style: .default, handler: { (_) in
+            self.newCryptexAndReset()
+        }))
+        present(alert, animated: true, completion: nil)
+    }
 
 
 
     @IBAction func unlockButtonTapped(_ sender: Any) {
         //use has matching password method to check equality. if true present correct alert. if false present incorrect alert.
+        if hasMatchingPassword() == true {
+            presentCorrectPasswordAlert()
+        } else {
+            presentIncorrectPasswordAlert()
+        }
     }
     
     
