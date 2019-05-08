@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Gvj-iI-1tg">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cryptex-->
+        <scene sceneID="yJH-OZ-SRh">
+            <objects>
+                <viewController title="Cryptex" id="Gvj-iI-1tg" customClass="CryptexViewController" customModule="Cryptex2_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t8H-R8-7w2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="54" translatesAutoresizingMaskIntoConstraints="NO" id="GPR-es-tvQ">
+                                <rect key="frame" x="47" y="287.5" width="320" height="374.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hint" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XI-Et-i0E">
+                                        <rect key="frame" x="144.5" y="0.0" width="31.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iff-g0-IKB">
+                                        <rect key="frame" x="0.0" y="74.5" width="320" height="216"/>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W9h-xk-DKa">
+                                        <rect key="frame" x="136" y="344.5" width="48" height="30"/>
+                                        <state key="normal" title="Unlock"/>
+                                        <connections>
+                                            <action selector="unlockButtonPressed:" destination="Gvj-iI-1tg" eventType="touchUpInside" id="5jE-yf-ywb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GPR-es-tvQ" firstAttribute="centerX" secondItem="t8H-R8-7w2" secondAttribute="centerX" id="c4R-f6-MO0"/>
+                            <constraint firstItem="FtY-k4-zfU" firstAttribute="bottom" secondItem="GPR-es-tvQ" secondAttribute="bottom" constant="200" id="g2j-xw-gDt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FtY-k4-zfU"/>
+                    </view>
+                    <connections>
+                        <outlet property="cryptexPicker" destination="iff-g0-IKB" id="ktR-Y5-hdo"/>
+                        <outlet property="hintLabel" destination="4XI-Et-i0E" id="46g-WF-rau"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vbT-DR-zcc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="122" y="86"/>
+        </scene>
+    </scenes>
+</document>
