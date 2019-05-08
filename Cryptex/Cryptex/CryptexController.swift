@@ -8,7 +8,22 @@
 
 import Foundation
 
+
 class CryptexController {
-    private var cryptexArray: [Cryptex] = [B, L, U, E]
+    
+    init() {
+        randomCryptex()
+    }
+    
+    private var cryptexes: [Cryptex] = [Cryptex(password: "CRYPTEX", hint: "What is a cryptex?"), Cryptex(password: "password", hint: "not my password"), Cryptex(password: "PORTLAND", hint: "RIP Cty")]
+    
+    var currentCryptex: Cryptex?
+    
+    func randomCryptex() {
+        currentCryptex = cryptexes.randomElement()
+        // returns a random element of the collection
+    }
+    
+    
     
 }
