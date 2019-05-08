@@ -25,9 +25,31 @@ class CryptexViewController: UIViewController {
         pickerView.reloadAllComponents()
     }
     
+    func reset() {
+        //invalidate old timer.
+        
+        //create new timer
+        countdownTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { timer in print("timer")}
+    }
     
+    func newCryptexAndReset() {
+        cryptexController.randomCryptex()
+        updateViews()
+        reset()
+    }
     
-    
+//    func hasMatchingPassword() -> Bool {
+//        var letterArray: [Character] = []
+//        //loop through picker view letters and add them to letterArray
+//        //turn the array of letters into a string
+//        //compare current cryptex password to that string using uppercased
+//        //return a bool
+//
+//
+//    }
+
+
+
     @IBAction func unlockButtonTapped(_ sender: Any) {
     }
     
@@ -35,6 +57,8 @@ class CryptexViewController: UIViewController {
     //Mark: Properties
     
     var cryptexController = CryptexController()
+    
+    var countdownTimer: Timer?
     
     var letters = ["A", "B", "C", "D",
                    "E", "F", "G", "H",
