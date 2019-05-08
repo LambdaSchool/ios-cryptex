@@ -15,7 +15,7 @@ class CryptexController {
         randomCryptex()
     }
     
-    private var cryptexes: [Cryptex] = [Cryptex(password: "CRYPTEX", hint: "What is a cryptex?"), Cryptex(password: "PASSWORD", hint: "a likely password"), Cryptex(password: "LASVEGAS", hint: "Sin city")]
+    private var cryptexes: [Cryptex] = [Cryptex(password: "CRYPTEX", hint: "The thing you are trying to solve"), Cryptex(password: "PASSWORD", hint: "a likely password"), Cryptex(password: "LASVEGAS", hint: "Sin city")]
     
     var currentCryptex: Cryptex?
     

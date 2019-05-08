@@ -55,9 +55,8 @@ class CryptexViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        guard let currentCryptex = cryptexController.currentCryptex else { return 0}
+        guard let currentCryptex = cryptexController.currentCryptex else { return 0 }
         return currentCryptex.password.count
-        
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -69,41 +68,35 @@ class CryptexViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     
-    /*                              --Game Logic--                              */
+    // GAME LOGIC
     
     func hasMatchingPassword() -> Bool {
         guard let currentPassword = cryptexController.currentCryptex else {return false}
         var characters : [String] = []
-        
-        
         for i in 0..<currentPassword.password.count{
             let row = cryptexPickerView.selectedRow(inComponent: i)
             guard let title = pickerView(cryptexPickerView, titleForRow: row, forComponent: i) else { continue }
             characters.append(title)
         }
-        
         let answer = characters.joined()
         if answer == cryptexController.currentCryptex?.password { return true } else { return false }
-        
     }
     
-    
     var countdownTimer: Timer?
-    
-    
+
     func reset() {
         countdownTimer?.invalidate()
         countdownTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: false, block: { (Timer) in
             self.presentNoTimeRemainingAlert()
         })
         updateViews()
-    }
+    } // end of reset function
     
     func newCryptexAndReset() {
         cryptexController.randomCryptex()
         updateViews()
         reset()
-    }
+    } // end of new crypt reset function
     
     
     func presentCorrectPasswordAlert() {
