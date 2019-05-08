@@ -54,6 +54,7 @@ class CryptexViewController: UIViewController {
                 let password = alertController.textFields?[1].text else { return }
             
             self.cryptexController.createNewCryptex(withHint: hint, withPassword: password)
+            self.cryptexController.saveToPersistentStore()
         }
         
         alertController.addAction(submitAction)
