@@ -108,7 +108,7 @@ class CryptexViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     func presentCorrectPasswordAlert() {
         
-        let correctAlert = UIAlertController(title: "CORRECT", message: "You answered correctly", preferredStyle: .alert)
+        let correctAlert = UIAlertController(title: "Correct", message: "You answered correctly!", preferredStyle: .alert)
         correctAlert.addAction(UIAlertAction(title: "Next", style: .default, handler: {
             (action) in
             self.newCryptexAndReset()
@@ -120,7 +120,7 @@ class CryptexViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     func presentIncorrectPasswordAlert() {
         
-        let incorrectAlert = UIAlertController(title: "WRONG", message: "Password entered is incorrect", preferredStyle: .alert)
+        let incorrectAlert = UIAlertController(title: "Incorrect", message: "You answered incorrectly. Try again!", preferredStyle: .alert)
         incorrectAlert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: nil))
         incorrectAlert.addAction(UIAlertAction(title: "Try New Cryptex", style: .default, handler: {
             (action) in
@@ -130,7 +130,7 @@ class CryptexViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     func presentNoTimeRemainingAlert() {
-        let noTimeAlert = UIAlertController(title: "OUT OF TIME", message: "You are out of time", preferredStyle: .alert)
+        let noTimeAlert = UIAlertController(title: "Time is up", message: "You are out of time!", preferredStyle: .alert)
         noTimeAlert.addAction(UIAlertAction(title: "Reset timer?", style: .default, handler: {
             (action) in
             self.reset()
