@@ -44,6 +44,23 @@ class CryptexViewController: UIViewController {
         }
     }
     
+    @IBAction func addNewCryptexTapped(_ sender: Any) {
+        let alertController = UIAlertController(title: "Create new Cryptex", message: "Enter Hint, then Password", preferredStyle: .alert)
+        alertController.addTextField()
+        alertController.addTextField()
+        
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned alertController] _ in
+            guard let hint = alertController.textFields?[0].text,
+                let password = alertController.textFields?[1].text else { return }
+            
+            self.cryptexController.createNewCryptex(withHint: hint, withPassword: password)
+        }
+        
+        alertController.addAction(submitAction)
+        
+        present(alertController, animated: true)
+    }
+    
     private func updateViews() {
         pickerView.reloadAllComponents()
         hintLabel.text = cryptexController.currentCryptex?.hint

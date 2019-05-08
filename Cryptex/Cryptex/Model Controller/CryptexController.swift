@@ -17,6 +17,11 @@ class CryptexController {
         currentCryptex = randomCryptex
     }
     
+    func createNewCryptex(withHint hint: String, withPassword password: String) {
+        let cryptex = Cryptex(password: password, hint: hint)
+        cryptexs.append(cryptex)
+    }
+    
     init() {
         let cryptex1 = Cryptex(password: "Spock", hint: "Famous Vulcan")
         let cryptex2 = Cryptex(password: "Constant", hint: "Its value can't be changed once set in code")

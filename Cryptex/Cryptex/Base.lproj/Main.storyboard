@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2IZ-NX-WMg">
-                                <rect key="frame" x="16" y="52" width="382" height="306.5"/>
+                                <rect key="frame" x="16" y="52" width="382" height="356.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9wv-d9-wfv">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
@@ -35,6 +35,13 @@
                                         <state key="normal" title="Unlock"/>
                                         <connections>
                                             <action selector="unlockButtonTapped:" destination="Top-XT-Syi" eventType="touchUpInside" id="a1b-SX-BHV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hL0-Ua-zLz">
+                                        <rect key="frame" x="0.0" y="326.5" width="382" height="30"/>
+                                        <state key="normal" title="Add New Cryptex"/>
+                                        <connections>
+                                            <action selector="addNewCryptexTapped:" destination="Top-XT-Syi" eventType="touchUpInside" id="SX2-Lx-eKW"/>
                                         </connections>
                                     </button>
                                 </subviews>
