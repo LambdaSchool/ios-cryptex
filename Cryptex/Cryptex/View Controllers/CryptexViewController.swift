@@ -69,6 +69,7 @@ class CryptexViewController: UIViewController {
         alertController.addAction(submitAction)
         
         present(alertController, animated: true)
+        newCryptexAndReset() // Reset after user adds cryptex
     }
     
     private func updateViews() {

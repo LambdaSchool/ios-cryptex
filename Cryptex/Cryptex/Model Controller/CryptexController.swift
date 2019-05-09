@@ -11,10 +11,18 @@ import Foundation
 class CryptexController {
     private(set) var cryptexs: [Cryptex] = []
     var currentCryptex: Cryptex?
+    var lastCryptex: Cryptex?
     
     func randomCryptex() {
-        let randomCryptex = cryptexs.randomElement()
-        currentCryptex = randomCryptex
+        var randomCryptex = cryptexs.randomElement()
+        if randomCryptex == lastCryptex {
+           randomCryptex = cryptexs.randomElement()
+            lastCryptex = currentCryptex
+        } else {
+            currentCryptex = randomCryptex
+            lastCryptex = currentCryptex
+        }
+        
     }
     
     func createNewCryptex(withHint hint: String, withPassword password: String) {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Cryptex: Codable {
+struct Cryptex: Codable, Equatable {
     let password: String
     let hint: String
 }
