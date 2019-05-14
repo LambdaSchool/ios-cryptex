@@ -11,6 +11,8 @@
 		0B71297D228A48D400BBAA58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B71297B228A48D400BBAA58 /* Main.storyboard */; };
 		0B71297F228A48D600BBAA58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B71297E228A48D600BBAA58 /* Assets.xcassets */; };
 		0B712982228A48D600BBAA58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B712980228A48D600BBAA58 /* LaunchScreen.storyboard */; };
+		0BF8AA5C228A8C50005206B0 /* Cryptex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF8AA5B228A8C50005206B0 /* Cryptex.swift */; };
+		0BF8AA5E228A8C5C005206B0 /* CryptexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF8AA5D228A8C5C005206B0 /* CryptexController.swift */; };
 		0BFFE2FD228A4BAB0052AA1E /* CryptexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFFE2FC228A4BAB0052AA1E /* CryptexViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +23,8 @@
 		0B71297E228A48D600BBAA58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B712981228A48D600BBAA58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B712983228A48D600BBAA58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0BF8AA5B228A8C50005206B0 /* Cryptex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptex.swift; sourceTree = "<group>"; };
+		0BF8AA5D228A8C5C005206B0 /* CryptexController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptexController.swift; sourceTree = "<group>"; };
 		0BFFE2FC228A4BAB0052AA1E /* CryptexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptexViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +62,8 @@
 				0BFFE2FE228A4BD10052AA1E /* Storyboards */,
 				0BFFE2FF228A4BDC0052AA1E /* ViewControllers */,
 				0BFFE300228A4C100052AA1E /* Resources */,
+				0BF8AA5B228A8C50005206B0 /* Cryptex.swift */,
+				0BF8AA5D228A8C5C005206B0 /* CryptexController.swift */,
 			);
 			path = Cryptex;
 			sourceTree = "<group>";
@@ -160,6 +166,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BFFE2FD228A4BAB0052AA1E /* CryptexViewController.swift in Sources */,
+				0BF8AA5E228A8C5C005206B0 /* CryptexController.swift in Sources */,
+				0BF8AA5C228A8C50005206B0 /* Cryptex.swift in Sources */,
 				0B712978228A48D400BBAA58 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
