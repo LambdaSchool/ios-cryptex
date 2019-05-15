@@ -143,7 +143,7 @@ extension CryptexViewController {
     func start() {
         // Cancel timer before starting new timer
         cancelTimer()
-        countdownTimer = Timer.scheduledTimer(withTimeInterval: 4, repeats: false, block: { (_) in
+        countdownTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: false, block: { (_) in
           self.presentNoTimeRemainingAlert()   //closure
         })
     }
