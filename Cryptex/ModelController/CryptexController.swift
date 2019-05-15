@@ -19,8 +19,8 @@ class CryptexController {
     }
     
     private func addCryptex() {
-        let cryptexOne = Cryptex.init(password: "PIZZA", hint: "what is Dongwoo's favorite food?")
-        let cryptexTwo = Cryptex.init(password: "WA", hint: "what is the name of city where Dongwoo lives in?")
+        let cryptexOne = Cryptex.init(password: "bball", hint: "what is Dongwoo's favorite sport")
+        let cryptexTwo = Cryptex.init(password: "WA", hint: "State where Dongwoo lives?")
         let cryptexThree = Cryptex.init(password: "PAE", hint: "what is Dongwoo's last name?")
         
         cryptexs.append(cryptexOne)

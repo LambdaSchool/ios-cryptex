@@ -10,11 +10,11 @@ import UIKit
 
 class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    //IBOutlers
+    //Mark: IBOutlers
     @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var cryptexPickerView: UIPickerView!
     
-    //properties
+    //Mark: properties
     var letters = ["A", "B", "C", "D",
                    "E", "F", "G", "H",
                    "I", "J", "K", "L",
@@ -22,14 +22,10 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                    "Q", "R", "S", "T",
                    "U", "V", "W", "X",
                    "Y", "Z"]
-   // var yourAnswer: [String] = []
-    var countdownTimer: Timer?
-    private var stopDate: Date?
     
+    var countdownTimer: Timer?
     
     var cryptexController = CryptexController()
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +37,6 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
     }
 
-    
-    
     @IBAction func unlockButtonTapped(_ sender: Any) {
         let answer = hasMatchingPassword()
         if answer {
@@ -60,7 +54,7 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             cryptexPickerView.reloadAllComponents()
     }
     
-    //alerts
+    //MARK: Alerts
     private func presentCorrectPasswordAlert() {
         let alert = UIAlertController(title: "You are right!!", message: "your guess is correct!", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "New Cryptex!", style: .default) { (_) in self.newCryptexAndReset()})
@@ -91,7 +85,7 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
 }
 
-
+//MARK: pickerView portion - required and other methods
 extension CryptexViewController {
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -111,7 +105,7 @@ extension CryptexViewController {
     }
    
     func hasMatchingPassword() -> Bool {
-        //var output = ""
+
         var combinedLetters :[String] = []
         guard let count = cryptexController.currentCryptex else {return false}
 
@@ -141,8 +135,6 @@ extension CryptexViewController {
     }
 
     func start() {
-        // Cancel timer before starting new timer
-        cancelTimer()
         countdownTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: false, block: { (_) in
           self.presentNoTimeRemainingAlert()   //closure
         })
