@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		B3992536228B9E0B00B2706A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3992535228B9E0B00B2706A /* AppDelegate.swift */; };
-		B3992538228B9E0B00B2706A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3992537228B9E0B00B2706A /* ViewController.swift */; };
 		B399253B228B9E0B00B2706A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3992539228B9E0B00B2706A /* Main.storyboard */; };
 		B399253D228B9E0C00B2706A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B399253C228B9E0C00B2706A /* Assets.xcassets */; };
 		B3992540228B9E0C00B2706A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B399253E228B9E0C00B2706A /* LaunchScreen.storyboard */; };
+		B399254D228BA00000B2706A /* CryptexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399254C228BA00000B2706A /* CryptexViewController.swift */; };
+		B399254F228BA0A100B2706A /* Cryptex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399254E228BA0A100B2706A /* Cryptex.swift */; };
+		B3992551228BA0FF00B2706A /* CryptexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3992550228BA0FF00B2706A /* CryptexController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B3992532228B9E0B00B2706A /* Cryptex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3992535228B9E0B00B2706A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B3992537228B9E0B00B2706A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B399253A228B9E0B00B2706A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B399253C228B9E0C00B2706A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B399253F228B9E0C00B2706A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3992541228B9E0C00B2706A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B399254C228BA00000B2706A /* CryptexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptexViewController.swift; sourceTree = "<group>"; };
+		B399254E228BA0A100B2706A /* Cryptex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptex.swift; sourceTree = "<group>"; };
+		B3992550228BA0FF00B2706A /* CryptexController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptexController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,56 @@
 		B3992534228B9E0B00B2706A /* Cryptex */ = {
 			isa = PBXGroup;
 			children = (
-				B3992535228B9E0B00B2706A /* AppDelegate.swift */,
-				B3992537228B9E0B00B2706A /* ViewController.swift */,
-				B3992539228B9E0B00B2706A /* Main.storyboard */,
-				B399253C228B9E0C00B2706A /* Assets.xcassets */,
-				B399253E228B9E0C00B2706A /* LaunchScreen.storyboard */,
-				B3992541228B9E0C00B2706A /* Info.plist */,
+				B399254B228B9FDB00B2706A /* ViewControllers */,
+				B399254A228B9FBF00B2706A /* Controller */,
+				B3992549228B9FB600B2706A /* Model */,
+				B3992548228B9FAD00B2706A /* Resources */,
+				B3992547228B9FA000B2706A /* StoryBoards */,
 			);
 			path = Cryptex;
+			sourceTree = "<group>";
+		};
+		B3992547228B9FA000B2706A /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				B3992539228B9E0B00B2706A /* Main.storyboard */,
+				B399253E228B9E0C00B2706A /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		B3992548228B9FAD00B2706A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B3992535228B9E0B00B2706A /* AppDelegate.swift */,
+				B399253C228B9E0C00B2706A /* Assets.xcassets */,
+				B3992541228B9E0C00B2706A /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B3992549228B9FB600B2706A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B399254E228BA0A100B2706A /* Cryptex.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B399254A228B9FBF00B2706A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B3992550228BA0FF00B2706A /* CryptexController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B399254B228B9FDB00B2706A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B399254C228BA00000B2706A /* CryptexViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +181,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3992538228B9E0B00B2706A /* ViewController.swift in Sources */,
+				B399254D228BA00000B2706A /* CryptexViewController.swift in Sources */,
+				B3992551228BA0FF00B2706A /* CryptexController.swift in Sources */,
+				B399254F228BA0A100B2706A /* Cryptex.swift in Sources */,
 				B3992536228B9E0B00B2706A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,7 +332,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SBB8C9E36E;
-				INFOPLIST_FILE = Cryptex/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Cryptex/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +350,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SBB8C9E36E;
-				INFOPLIST_FILE = Cryptex/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Cryptex/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
