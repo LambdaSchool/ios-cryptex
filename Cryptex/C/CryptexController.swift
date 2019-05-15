@@ -26,24 +26,14 @@ class CryptexController {
         cryptexes.append(crypt)
         
     }
+    // MARK: Left off Here!!
+    var currentCryptex: Cryptex?
+    
+    func randomCryptex() {
+        let randomCryptex = cryptexes.randomElement()
+        
+        currentCryptex = randomCryptex
+    }
 
     
 }
-
-
-
-//class NoteController {
-//
-//    init () {
-//        //        createNote(withText: "Walk it")
-//        //        createNote(withText: "This is it")
-//        //        createNote(withText: "Last Call")
-//    }
-//    private(set) var notes: [Note] = []
-//
-//    func createNote(withText text: String) {
-//        let note = Note(text: text)
-//
-//        notes.append(note)
-//    }
-//}
