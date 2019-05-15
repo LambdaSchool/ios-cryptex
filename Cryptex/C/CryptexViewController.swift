@@ -8,16 +8,17 @@
 
 import UIKit
 
-class CryptexViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class CryptexViewController: UIViewController {
     
-    //MARK: Picker View
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        
-    }
+    var cryptexController: CryptexController
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        <#code#>
-    }
+    var letters = ["A", "B", "C", "D",
+                   "E", "F", "G", "H",
+                   "I", "J", "K", "L",
+                   "M", "N", "O", "P",
+                   "Q", "R", "S", "T",
+                   "U", "V", "W", "X",
+                   "Y", "Z"]
     
     //MARK: Outletss
     @IBOutlet weak var Picker: UIPickerView!
@@ -43,4 +44,26 @@ class CryptexViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBAction func UnlockButton(_ sender: Any) {
     }
     
+}
+
+extension CryptexViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    
+    
+    //MARK: Picker View Handling
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        // For the number of components, think about how you can figure out how many characters are in the `currentCryptex`'s password.
+        return (cryptexController.currentCryptex?.password.count)!
+        
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        // For the number of rows, we want to show as many rows as there are letters.
+        return letters.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        // For the title of each row, we want to show the letter that corresponds to the row. i.e. row 0 should show "A", row 1 should show "B", etc.
+        return letters[row]
+    }
 }
