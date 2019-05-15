@@ -10,7 +10,9 @@ import UIKit
 
 class CryptexViewController: UIViewController {
     
-    var cryptexController: CryptexController
+    
+    
+    var cryptexController: CryptexController?
     
     var letters = ["A", "B", "C", "D",
                    "E", "F", "G", "H",
@@ -27,8 +29,12 @@ class CryptexViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        Picker.dataSource = self
+        Picker.delegate = self
         // Do any additional setup after loading the view.
+        self.Picker.becomeFirstResponder()
+        updateViews()
     }
     
 
@@ -48,12 +54,11 @@ class CryptexViewController: UIViewController {
 
 extension CryptexViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
-    
-    
+
     //MARK: Picker View Handling
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         // For the number of components, think about how you can figure out how many characters are in the `currentCryptex`'s password.
-        return (cryptexController.currentCryptex?.password.count)!
+        return ((cryptexController?.currentCryptex?.password.count)!)
         
     }
     
@@ -65,5 +70,11 @@ extension CryptexViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         // For the title of each row, we want to show the letter that corresponds to the row. i.e. row 0 should show "A", row 1 should show "B", etc.
         return letters[row]
+    }
+    
+    // Sets Hint Label's Text
+    func updateViews() {
+        HintLabel.text = cryptexController?.currentCryptex?.hint
+        reloadInputViews()
     }
 }
