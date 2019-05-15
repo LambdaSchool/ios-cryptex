@@ -53,7 +53,6 @@
                     <connections>
                         <outlet property="cryptexPickerView" destination="N8F-s0-QNt" id="FoU-cU-cux"/>
                         <outlet property="hintLabel" destination="eOP-IA-BNB" id="9TL-Mj-cLq"/>
-                        <outlet property="unlockButtonLabel" destination="wNX-R5-2FU" id="684-h2-1g5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cfP-yv-zGm" userLabel="First Responder" sceneMemberID="firstResponder"/>

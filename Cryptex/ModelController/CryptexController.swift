@@ -19,13 +19,14 @@ class CryptexController {
     }
     
     private func addCryptex() {
-        let cryptexOne = Cryptex.init(password: "Pizza", hint: "what is Dongwoo's favorite food?")
-        let cryptexTwo = Cryptex.init(password: "Bellevue", hint: "what is the name of city where Dongwoo lives in?")
-        let cryptexThree = Cryptex.init(password: "Pae", hint: "what is Dongwoo's last name?")
+        let cryptexOne = Cryptex.init(password: "PIZZA", hint: "what is Dongwoo's favorite food?")
+        let cryptexTwo = Cryptex.init(password: "BELLEVUE", hint: "what is the name of city where Dongwoo lives in?")
+        let cryptexThree = Cryptex.init(password: "PAE", hint: "what is Dongwoo's last name?")
         
         cryptexs.append(cryptexOne)
         cryptexs.append(cryptexTwo)
         cryptexs.append(cryptexThree)
+
     }
     
     func randomCryptex() {
@@ -33,5 +34,5 @@ class CryptexController {
         let randomNumber = Int.random(in: 0...endCount)
         currentCryptex = cryptexs[randomNumber]
     }
-    
+
 }
