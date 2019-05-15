@@ -30,6 +30,7 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     var cryptexController = CryptexController()
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,7 +44,12 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     
     @IBAction func unlockButtonTapped(_ sender: Any) {
-        hasMatchingPassword()
+        let answer = hasMatchingPassword()
+        if answer {
+            presentCorrectPasswordAlert()
+        } else {
+            
+        }
     }
 
     
@@ -51,6 +57,13 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         guard let upperCase = cryptexController.currentCryptex else {return}
             self.hintLabel.text? = upperCase.hint.uppercased()
             cryptexPickerView.reloadAllComponents()
+    }
+    
+    //alerts
+    private func presentCorrectPasswordAlert() {
+        let alert = UIAlertController(title: "You are right!!", message: "your guess is correct!", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "New Cryptex!", style: .default, handler: { action in self.newCryptexAndReset()}))
+        self.present(alert, animated: true)
     }
     
 
@@ -74,8 +87,6 @@ extension CryptexViewController {
         return letters[row]
         
     }
-    
- 
    
     func hasMatchingPassword() -> Bool {
         //var output = ""
@@ -105,22 +116,28 @@ extension CryptexViewController {
         countdownTimer?.invalidate()
         countdownTimer = nil
     }
-/*
+  /*
     func start() {
         // Cancel timer before starting new timer
         cancelTimer()
         countdownTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: false, block: { (_) in
-          self.presentNoTimeRemainingAlert()
+          self.presentNoTimeRemainingAlert()   //closure
         })
     }
-  */
+*/
     func newCryptexAndReset() {
         cryptexController.randomCryptex()
         updateViews()
         reset()
     }
     
-/*
+  
+
+    
+    
+    
+    
+/* no need to use this since we are not controlling timers
     private func updateTimer(timer: Timer) {
         
         if let stopDate = stopDate {
