@@ -56,6 +56,7 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     func updateViews() {
         guard let upperCase = cryptexController.currentCryptex else {return}
             self.hintLabel.text? = upperCase.hint.uppercased()
+            self.start()
             cryptexPickerView.reloadAllComponents()
     }
     
@@ -63,13 +64,13 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     private func presentCorrectPasswordAlert() {
         let alert = UIAlertController(title: "You are right!!", message: "your guess is correct!", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "New Cryptex!", style: .default) { (_) in self.newCryptexAndReset()})
-        self.present(alert, animated: true)
+        self.present(alert, animated: true, completion: nil)
     }
     
     private func presentIncorrectPasswordAlert() {
         let alert = UIAlertController(title: "You are wrong!!", message: "Your guess is wrong", preferredStyle: .actionSheet)
         let keepGuessing = UIAlertAction(title: "Keep Guessing", style: .default, handler: nil)
-        let newCryptex = UIAlertAction(title: "New Cryptex", style: .default) {(_) in self.newCryptexAndReset()}
+        let newCryptex = UIAlertAction(title: "New Cryptex!", style: .default) {(_) in self.newCryptexAndReset()}
    
         alert.addAction(keepGuessing)
         alert.addAction(newCryptex)
@@ -77,6 +78,16 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         present(alert, animated: true, completion: nil)
     }
     
+    private func presentNoTimeRemainingAlert() {
+        let alert = UIAlertController(title: "Time is up", message: "Your time ran out", preferredStyle: .actionSheet)
+        let resetTimer = UIAlertAction(title: "Reset the timer and Keep guessing", style: .default) { (_) in self.reset()}
+        let newCryptex = UIAlertAction(title: "New Cryptex!", style: .default) { (_) in self.newCryptexAndReset()}
+        
+        alert.addAction(resetTimer)
+        alert.addAction(newCryptex)
+        
+        present(alert, animated: true, completion: nil)
+    }
 
 }
 
@@ -119,6 +130,7 @@ extension CryptexViewController {
     
     func reset() {
     cancelTimer()
+    start()
     }
     
     func cancelTimer() {
@@ -127,15 +139,15 @@ extension CryptexViewController {
         countdownTimer?.invalidate()
         countdownTimer = nil
     }
-  /*
+
     func start() {
         // Cancel timer before starting new timer
         cancelTimer()
-        countdownTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: false, block: { (_) in
+        countdownTimer = Timer.scheduledTimer(withTimeInterval: 4, repeats: false, block: { (_) in
           self.presentNoTimeRemainingAlert()   //closure
         })
     }
-*/
+
     func newCryptexAndReset() {
         cryptexController.randomCryptex()
         updateViews()
