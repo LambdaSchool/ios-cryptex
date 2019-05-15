@@ -48,10 +48,11 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
     
     func updateViews() {
+        
+            self.cryptexPickerView.reloadAllComponents()
         guard let upperCase = cryptexController.currentCryptex else {return}
             self.hintLabel.text? = upperCase.hint.uppercased()
-            self.start()
-            cryptexPickerView.reloadAllComponents()
+            start()
     }
     
     //MARK: Alerts
@@ -103,6 +104,7 @@ extension CryptexViewController {
         return letters[row]
         
     }
+
    
     func hasMatchingPassword() -> Bool {
 
@@ -111,7 +113,7 @@ extension CryptexViewController {
 
             for input in 0..<count.password.count {
                 let row = cryptexPickerView.selectedRow(inComponent: input)     //  ["a","b","c"]
-                guard let title = pickerView(cryptexPickerView, titleForRow: row, forComponent: input) else {continue}
+                guard let title = pickerView(cryptexPickerView, titleForRow: row, forComponent: input) else {continue} //this is getting row number and component number
                 combinedLetters.append(title)
         }
         let combinedLetterOneString = combinedLetters.joined().uppercased()
@@ -123,19 +125,24 @@ extension CryptexViewController {
     }
     
     func reset() {
-    cancelTimer()
+    countdownTimer?.invalidate()
+    countdownTimer = nil
     start()
+        for component in 0..<cryptexPickerView.numberOfComponents {
+            cryptexPickerView.selectRow(0, inComponent: component, animated: true)
+        }
     }
-    
+ /*
     func cancelTimer() {
         // We must invalidate a timer, or it will continue to run even if we
         // start a new timer
         countdownTimer?.invalidate()
         countdownTimer = nil
     }
-
+*/
+ 
     func start() {
-        countdownTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: false, block: { (_) in
+        countdownTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: false, block: { (_) in
           self.presentNoTimeRemainingAlert()   //closure
         })
     }

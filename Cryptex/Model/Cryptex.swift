@@ -11,7 +11,6 @@ import Foundation
 struct Cryptex {
     let password: String
     let hint: String
-
 }
 
 
