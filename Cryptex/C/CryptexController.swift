@@ -15,6 +15,8 @@ class CryptexController {
         create(password: "Nathan", hint: "My Name")
         create(password: "Lambda", hint: "My School")
         create(password: "Mew", hint: "Best Pokemon")
+        
+        randomCryptex()
     }
     
     private (set) var cryptexes: [Cryptex] = []
@@ -26,7 +28,7 @@ class CryptexController {
         cryptexes.append(crypt)
         
     }
-    // MARK: Left off Here!!
+    // MARK: Random Cryptex selector
     var currentCryptex: Cryptex?
     
     func randomCryptex() {

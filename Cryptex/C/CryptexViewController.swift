@@ -8,8 +8,18 @@
 
 import UIKit
 
-class CryptexViewController: UIViewController {
-
+class CryptexViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    //MARK: Picker View
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        <#code#>
+    }
+    
+    //MARK: Outletss
     @IBOutlet weak var Picker: UIPickerView!
     @IBOutlet weak var HintLabel: UILabel!
     
