@@ -13,12 +13,15 @@ class CryptexController {
     
     var currentCryptex: Cryptex?
     
-    init() {randomCryptex()}
+    init() {
+        addCryptex()
+        randomCryptex()
+    }
     
     private func addCryptex() {
-        let cryptexOne = Cryptex.init(password: "hello", hint: "what do you say when you meet your friends")
-        let cryptexTwo = Cryptex.init(password: "bye", hint: "what do you say when you are done meeting your firends")
-        let cryptexThree = Cryptex.init(password: "no", hint: "what do you say when you dont want it")
+        let cryptexOne = Cryptex.init(password: "Pizza", hint: "what is Dongwoo's favorite food?")
+        let cryptexTwo = Cryptex.init(password: "Bellevue", hint: "what is the name of city where Dongwoo lives in?")
+        let cryptexThree = Cryptex.init(password: "Pae", hint: "what is Dongwoo's last name?")
         
         cryptexs.append(cryptexOne)
         cryptexs.append(cryptexTwo)
@@ -26,7 +29,9 @@ class CryptexController {
     }
     
     func randomCryptex() {
-        let randomNumber = Int.random(in: 0...cryptexs.count - 1)
+        let endCount = cryptexs.count - 1
+        let randomNumber = Int.random(in: 0...endCount)
         currentCryptex = cryptexs[randomNumber]
     }
+    
 }

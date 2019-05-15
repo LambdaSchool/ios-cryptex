@@ -44,6 +44,8 @@
 			children = (
 				0B712976228A48D400BBAA58 /* Cryptex */,
 				0B712975228A48D400BBAA58 /* Products */,
+				0BFFE300228A4C100052AA1E /* Resources */,
+				0B712977228A48D400BBAA58 /* AppDelegate.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,14 +60,28 @@
 		0B712976228A48D400BBAA58 /* Cryptex */ = {
 			isa = PBXGroup;
 			children = (
-				0B712977228A48D400BBAA58 /* AppDelegate.swift */,
 				0BFFE2FE228A4BD10052AA1E /* Storyboards */,
 				0BFFE2FF228A4BDC0052AA1E /* ViewControllers */,
-				0BFFE300228A4C100052AA1E /* Resources */,
-				0BF8AA5B228A8C50005206B0 /* Cryptex.swift */,
-				0BF8AA5D228A8C5C005206B0 /* CryptexController.swift */,
+				0BF8AA5F228A8E2F005206B0 /* Model */,
+				0BF8AA60228A8E3B005206B0 /* ModelController */,
 			);
 			path = Cryptex;
+			sourceTree = "<group>";
+		};
+		0BF8AA5F228A8E2F005206B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0BF8AA5B228A8C50005206B0 /* Cryptex.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0BF8AA60228A8E3B005206B0 /* ModelController */ = {
+			isa = PBXGroup;
+			children = (
+				0BF8AA5D228A8C5C005206B0 /* CryptexController.swift */,
+			);
+			path = ModelController;
 			sourceTree = "<group>";
 		};
 		0BFFE2FE228A4BD10052AA1E /* Storyboards */ = {
@@ -316,7 +332,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C22Z4773SH;
-				INFOPLIST_FILE = "$(SRCROOT)/Cryptex/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -334,7 +350,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C22Z4773SH;
-				INFOPLIST_FILE = "$(SRCROOT)/Cryptex/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
