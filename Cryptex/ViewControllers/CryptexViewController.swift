@@ -46,9 +46,9 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBAction func unlockButtonTapped(_ sender: Any) {
         let answer = hasMatchingPassword()
         if answer {
-            presentCorrectPasswordAlert()
+            self.presentCorrectPasswordAlert()
         } else {
-            
+            self.presentIncorrectPasswordAlert()
         }
     }
 
@@ -62,8 +62,19 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     //alerts
     private func presentCorrectPasswordAlert() {
         let alert = UIAlertController(title: "You are right!!", message: "your guess is correct!", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "New Cryptex!", style: .default, handler: { action in self.newCryptexAndReset()}))
+        alert.addAction(UIAlertAction(title: "New Cryptex!", style: .default) { (_) in self.newCryptexAndReset()})
         self.present(alert, animated: true)
+    }
+    
+    private func presentIncorrectPasswordAlert() {
+        let alert = UIAlertController(title: "You are wrong!!", message: "Your guess is wrong", preferredStyle: .actionSheet)
+        let keepGuessing = UIAlertAction(title: "Keep Guessing", style: .default, handler: nil)
+        let newCryptex = UIAlertAction(title: "New Cryptex", style: .default) {(_) in self.newCryptexAndReset()}
+   
+        alert.addAction(keepGuessing)
+        alert.addAction(newCryptex)
+        
+        present(alert, animated: true, completion: nil)
     }
     
 
