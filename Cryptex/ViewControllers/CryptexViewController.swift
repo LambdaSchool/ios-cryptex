@@ -52,7 +52,7 @@ class CryptexViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             self.cryptexPickerView.reloadAllComponents()
         guard let upperCase = cryptexController.currentCryptex else {return}
             self.hintLabel.text? = upperCase.hint.uppercased()
-            start()
+
     }
     
     //MARK: Alerts
@@ -125,27 +125,31 @@ extension CryptexViewController {
     }
     
     func reset() {
-    countdownTimer?.invalidate()
-    countdownTimer = nil
+    cancelTimer()
     start()
-        for component in 0..<cryptexPickerView.numberOfComponents {
-            cryptexPickerView.selectRow(0, inComponent: component, animated: true)
-        }
+    updateComponents()
+        
     }
- /*
+
     func cancelTimer() {
         // We must invalidate a timer, or it will continue to run even if we
         // start a new timer
         countdownTimer?.invalidate()
         countdownTimer = nil
     }
-*/
+
  
     func start() {
         countdownTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: false, block: { (_) in
           self.presentNoTimeRemainingAlert()   //closure
         })
     }
+    
+    func updateComponents() {
+        for component in 0..<cryptexPickerView.numberOfComponents {
+            cryptexPickerView.selectRow(0, inComponent: component, animated: true)
+    }
+}
 
     func newCryptexAndReset() {
         cryptexController.randomCryptex()
