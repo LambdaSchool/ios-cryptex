@@ -22,7 +22,7 @@ class CryptexViewController: UIViewController {
                    "U", "V", "W", "X",
                    "Y", "Z"]
     
-    //MARK: Outletss
+    //MARK: Outlets
     @IBOutlet weak var Picker: UIPickerView!
     @IBOutlet weak var HintLabel: UILabel!
     
@@ -37,25 +37,23 @@ class CryptexViewController: UIViewController {
         updateViews()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    //MARK: Button
     @IBAction func UnlockButton(_ sender: Any) {
     }
     
 }
 
+
+
+
+
+//MARK: Picker View Handling
+
+
 extension CryptexViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
 
-    //MARK: Picker View Handling
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         // For the number of components, think about how you can figure out how many characters are in the `currentCryptex`'s password.
         return cryptexController.currentCryptex?.password.count ?? 0
@@ -77,4 +75,24 @@ extension CryptexViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         HintLabel.text = cryptexController.currentCryptex?.hint
         reloadInputViews()
     }
+
+
+    
+    
+    //MARK: Game Logic
+    
+    
+    func hasMatchingPassword() -> Bool {
+        
+        var userGuess: [String] = []
+        
+        //This uses the .numberofComponents for the end limit of the loop. Then x returns the Letter number of the individual picker collumn. It then assigns that number as the index of the letters in the letters array index and appends that letter (based on its index place/number in the letters array) to the userGuess array that was created.
+        for x in 0...(Picker!.numberOfComponents - 1) {
+            userGuess.append(letters[Picker.selectedRow(inComponent: x)])
+        }
+        //This joins the userGuess arrays indexes into a single string
+        return userGuess.joined() == cryptexController.currentCryptex?.password
+        
+    }
+    
 }
