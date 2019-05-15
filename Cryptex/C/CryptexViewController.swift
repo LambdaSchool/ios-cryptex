@@ -12,7 +12,7 @@ class CryptexViewController: UIViewController {
     
     
     
-    var cryptexController: CryptexController?
+    var cryptexController = CryptexController()
     
     var letters = ["A", "B", "C", "D",
                    "E", "F", "G", "H",
@@ -58,7 +58,7 @@ extension CryptexViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     //MARK: Picker View Handling
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         // For the number of components, think about how you can figure out how many characters are in the `currentCryptex`'s password.
-        return ((cryptexController?.currentCryptex?.password.count)!)
+        return cryptexController.currentCryptex?.password.count ?? 0
         
     }
     
@@ -74,7 +74,7 @@ extension CryptexViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     // Sets Hint Label's Text
     func updateViews() {
-        HintLabel.text = cryptexController?.currentCryptex?.hint
+        HintLabel.text = cryptexController.currentCryptex?.hint
         reloadInputViews()
     }
 }
