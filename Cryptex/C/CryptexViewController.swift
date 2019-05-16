@@ -127,4 +127,16 @@ extension CryptexViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     //MARK: Alert Controls
     
     
+    func presentCorrectPasswordAlert() {
+        
+       let correctAlert = UIAlertController(title: "Correct Answer!", message: "Great Job! Try Another One!", preferredStyle: .alert)
+        
+        correctAlert.addAction(UIAlertAction(title: "Play Again", style: .default, handler: { action in
+            
+            self.newCryptexAndReset()
+            
+        }))
+        
+    }
+    
 }
