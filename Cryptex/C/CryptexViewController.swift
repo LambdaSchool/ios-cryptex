@@ -42,6 +42,13 @@ class CryptexViewController: UIViewController {
     
     //MARK: Button
     @IBAction func UnlockButton(_ sender: Any) {
+        
+        if hasMatchingPassword() {
+            presentCorrectPasswordAlert()
+        } else {
+            presentIncorrectPasswordAlert()
+        }
+        
     }
     
 }
@@ -137,6 +144,7 @@ extension CryptexViewController: UIPickerViewDataSource, UIPickerViewDelegate {
             
         }))
         
+        self.present(correctAlert, animated: true)
     }
     
     func presentIncorrectPasswordAlert() {
@@ -148,6 +156,25 @@ extension CryptexViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         incorrectAlert.addAction(UIAlertAction(title: "Next One", style: .default, handler: { action in
             
             self.newCryptexAndReset()
+            
+        }))
+        
+        self.present(incorrectAlert, animated: true)
+    }
+    
+    func presentNoTimeRemainingAlert() {
+        
+        let timeRanOut = UIAlertController(title: "Time Ran Out!", message: "You've gotta be quicker than that!", preferredStyle: .alert)
+        
+        timeRanOut.addAction(UIAlertAction(title: "Try A New One", style: .default, handler: { action in
+            
+            self.newCryptexAndReset()
+            
+        }))
+        
+        timeRanOut.addAction(UIAlertAction(title: "Keep Guessing", style: .default, handler: { action in
+            
+            self.reset()
             
         }))
     }
