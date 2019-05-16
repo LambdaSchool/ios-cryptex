@@ -36,6 +36,7 @@ class CryptexViewController: UIViewController {
         Picker.delegate = self
         // Do any additional setup after loading the view.
         self.Picker.becomeFirstResponder()
+        self.HintLabel.becomeFirstResponder()
         updateViews()
     }
     
@@ -114,6 +115,16 @@ extension CryptexViewController: UIPickerViewDataSource, UIPickerViewDelegate {
             
         }
     }
+    
+    func newCryptexAndReset() {
+        
+        cryptexController.randomCryptex()
+        updateViews()
+        reset()
+    }
+    
+    
+    //MARK: Alert Controls
     
     
 }
