@@ -11,7 +11,7 @@ import UIKit
 class CryptexViewController: UIViewController {
     
     
-    
+    //MARK: Stored Properties
     var cryptexController = CryptexController()
     
     var letters = ["A", "B", "C", "D",
@@ -21,6 +21,8 @@ class CryptexViewController: UIViewController {
                    "Q", "R", "S", "T",
                    "U", "V", "W", "X",
                    "Y", "Z"]
+    
+    var countdownTimer: Timer?
     
     //MARK: Outlets
     @IBOutlet weak var Picker: UIPickerView!
@@ -90,9 +92,28 @@ extension CryptexViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         for x in 0...(Picker!.numberOfComponents - 1) {
             userGuess.append(letters[Picker.selectedRow(inComponent: x)])
         }
-        //This joins the userGuess arrays indexes into a single string
+        //This joins the userGuess arrays indexes into a single string, compares it to the password and returns a bool
         return userGuess.joined() == cryptexController.currentCryptex?.password
         
     }
+    
+    func reset() {
+        
+       countdownTimer?.invalidate()
+        
+        let newTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: false) {
+            
+                newTimer in print("Timer Has Finished")
+            
+            }
+        
+        countdownTimer = newTimer
+        
+        for x in 0...(Picker!.numberOfComponents - 1) {
+            Picker.selectRow(1, inComponent: x, animated: true)
+            
+        }
+    }
+    
     
 }

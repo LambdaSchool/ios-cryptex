@@ -12,9 +12,9 @@ class CryptexController {
     
     init() {
         
-        create(password: "Nathan", hint: "My Name")
-        create(password: "Lambda", hint: "My School")
-        create(password: "Mew", hint: "Best Pokemon")
+        create(password: "NATHAN", hint: "My Name")
+        create(password: "LAMBDA", hint: "My School")
+        create(password: "MEW", hint: "The Best Pokemon")
         
         randomCryptex()
     }
