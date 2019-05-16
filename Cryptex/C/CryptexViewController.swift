@@ -36,7 +36,6 @@ class CryptexViewController: UIViewController {
         Picker.delegate = self
         // Do any additional setup after loading the view.
         self.Picker.becomeFirstResponder()
-        self.HintLabel.becomeFirstResponder()
         updateViews()
     }
     
@@ -83,7 +82,7 @@ extension CryptexViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     // Sets Hint Label's Text
     func updateViews() {
         HintLabel.text = cryptexController.currentCryptex?.hint
-        reloadInputViews()
+        Picker.reloadAllComponents()
     }
 
 
@@ -111,14 +110,14 @@ extension CryptexViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         
         let newTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: false) {
             
-                newTimer in print("Timer Has Finished")
+            newTimer in self.presentNoTimeRemainingAlert()
             
             }
         
         countdownTimer = newTimer
         
         for x in 0...(Picker!.numberOfComponents - 1) {
-            Picker.selectRow(1, inComponent: x, animated: true)
+            Picker.selectRow(0, inComponent: x, animated: true)
             
         }
     }
@@ -177,6 +176,9 @@ extension CryptexViewController: UIPickerViewDataSource, UIPickerViewDelegate {
             self.reset()
             
         }))
+        
+        self.present(timeRanOut, animated: true)
     }
+    
     
 }
